@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etName, etEmail, etPassword, etUsername;
     String name, email, password, username;
     AlertDialog.Builder builder;
-    String url_register = "http://192.168.215.2/register.php";
+    String url_register = "http://www.gmonetix.com/slambook/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
