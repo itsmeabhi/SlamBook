@@ -66,7 +66,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
 
     private int PICK_IMAGE_REQUEST = 1;
 
-    private String UPLOAD_URL ="http://gmonetix/slambook/register.php";
+    private String UPLOAD_URL ="http://www.gmonetix.com/slambook/register.php";
 
     private String KEY_IMAGE = "image";
     private String KEY_NAME = "name";
@@ -152,7 +152,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                         loading.dismiss();
 
                         //Showing toast
-                        Toast.makeText(UserRegistrationActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(UserRegistrationActivity.this, volleyError.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override

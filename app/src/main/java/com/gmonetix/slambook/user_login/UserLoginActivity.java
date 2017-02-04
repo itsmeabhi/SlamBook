@@ -25,7 +25,7 @@ public class UserLoginActivity extends AppCompatActivity {
     private EditText loginUserName, loginPassword;
     private String username, password;
     Button signIn;
-    String url_login = "http://gmonetix/slambook/login.php";
+    String url_login = "http://www.gmonetix.com/slambook/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
