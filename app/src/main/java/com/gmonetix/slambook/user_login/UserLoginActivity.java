@@ -25,7 +25,7 @@ public class UserLoginActivity extends AppCompatActivity {
     private EditText loginUserName, loginPassword;
     private String username, password;
     Button signIn;
-    String url_login = "http://192.168.215.2/user_login.php";
+    String url_login = "http://gmonetix/slambook/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class UserLoginActivity extends AppCompatActivity {
                     protected Map<String, String> getParams() throws AuthFailureError {
 
                         Map<String,String> params = new HashMap<String, String>();
-                        params.put("username",username);
+                        params.put("user_name",username);
                         params.put("password",password);
                         return params;
                     }

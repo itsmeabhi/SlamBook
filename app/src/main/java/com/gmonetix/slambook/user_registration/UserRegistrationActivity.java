@@ -66,7 +66,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
 
     private int PICK_IMAGE_REQUEST = 1;
 
-    private String UPLOAD_URL ="http://192.168.215.2/upload.php";
+    private String UPLOAD_URL ="http://gmonetix/slambook/register.php";
 
     private String KEY_IMAGE = "image";
     private String KEY_NAME = "name";
@@ -175,13 +175,12 @@ public class UserRegistrationActivity extends AppCompatActivity {
                 //Adding parameters
                 params.put(KEY_IMAGE, image);
                 params.put(KEY_NAME, name);
-                params.put("username",username);
+                params.put("user_name",username);
                 params.put("email",email);
                 params.put("password",password);
-                params.put("dob",dob);
+                params.put("date_of_birth",dob);
                 params.put("description",description);
-                params.put("number",phonenumber);
-                params.put("username",username);
+                params.put("phone_number",phonenumber);
 
                 //returning parameters
                 return params;
