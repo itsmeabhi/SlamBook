@@ -20,6 +20,9 @@ import android.widget.Toast;
 
 import com.gmonetix.slambook.R;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
@@ -102,8 +105,8 @@ public class UserRegistrationActivity extends AppCompatActivity {
             String encodedImage = Base64.encodeToString(outputStream.toByteArray(),Base64.DEFAULT);
 
             // org.Apache.http
-         //   ArrayList<NameValuePair> dataToSend = new ArrayList<>();
-       //     dataToSend.add(new Bas);
+            ArrayList<NameValuePair> dataToSend = new ArrayList<>();
+            //dataToSend.add(new BasicNameValuePair());
 
             return null;
         }
