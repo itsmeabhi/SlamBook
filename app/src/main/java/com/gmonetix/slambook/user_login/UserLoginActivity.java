@@ -1,10 +1,12 @@
 package com.gmonetix.slambook.user_login;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -14,6 +16,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.gmonetix.slambook.R;
+import com.gmonetix.slambook.helper.Const;
+import com.gmonetix.slambook.helper.Font;
+import com.gmonetix.slambook.user_registration.UserRegistrationActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +31,10 @@ public class UserLoginActivity extends AppCompatActivity {
     private EditText loginUserName, loginPassword;
     private String username, password;
     Button signIn;
-    String url_login = "http://www.gmonetix.com/slambook/login.php";
+    private TextView toolBarTextView;
+    private Font font;
+    private TextView signUp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +42,25 @@ public class UserLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_login);
 
         initialize();
+
+        toolBarTextView.setText("Login");
+        font.setFont(getApplicationContext(),toolBarTextView);
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserLoginActivity.this, UserRegistrationActivity.class));
+                finish();
+            }
+        });
+
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 username = loginUserName.getText().toString();
                 password = loginPassword.getText().toString();
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url_login,
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, Const.login_url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String s) {
@@ -47,7 +68,7 @@ public class UserLoginActivity extends AppCompatActivity {
                                     JSONArray jsonArray = new JSONArray(s);
                                     JSONObject jsonObject = jsonArray.getJSONObject(0);
                                     String code = jsonObject.getString("code");
-                                    Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(),s + code,Toast.LENGTH_LONG).show();
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -56,9 +77,7 @@ public class UserLoginActivity extends AppCompatActivity {
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError volleyError) {
-
-                                //Showing toast
-                                Toast.makeText(UserLoginActivity.this, volleyError.getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(UserLoginActivity.this, volleyError.getMessage()+ "Error", Toast.LENGTH_LONG).show();
                             }
                         }){
                     @Override
@@ -70,11 +89,7 @@ public class UserLoginActivity extends AppCompatActivity {
                         return params;
                     }
                 };
-
-                //Creating a Request Queue
                 RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-
-                //Adding request to the queue
                 requestQueue.add(stringRequest);
             }
         });
@@ -83,9 +98,12 @@ public class UserLoginActivity extends AppCompatActivity {
 
     private void initialize() {
 
+        toolBarTextView = (TextView) findViewById(R.id.toolbar_textView);
         signIn = (Button) findViewById(R.id.signin);
         loginPassword = (EditText) findViewById(R.id.password_login);
         loginUserName = (EditText) findViewById(R.id.username_login);
+        signUp = (TextView) findViewById(R.id.register_from_login_screen);
+        font = new Font();
 
     }
 }

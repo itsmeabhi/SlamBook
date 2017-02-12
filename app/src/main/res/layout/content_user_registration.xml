@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.gmonetix.slambook.user_registration.UserRegistrationActivity"
     tools:showIn="@layout/activity_user_registration">
@@ -13,68 +14,154 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/tv11"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <EditText
+            android:textColor="@color/black"
+            android:layout_below="@+id/tv11"
+            android:textSize="40sp"
+            android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="Name"
             android:ems="10"
             android:id="@+id/et_name" />
 
-        <EditText
-            android:layout_margin="5dp"
+        <TextView
+            android:id="@+id/tv12"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_below="@+id/et_name"
+            android:text="Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:textSize="40sp"
+            android:background="@drawable/edittext_design"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/tv12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:hint="email"
             android:id="@+id/et_email" />
 
+        <TextView
+            android:id="@+id/tv13"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/et_email"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <EditText
+            android:textSize="40sp"
+            android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="Username"
             android:ems="10"
-            android:layout_below="@+id/et_email"
+            android:layout_below="@+id/tv13"
             android:id="@+id/et_username" />
 
-        <EditText
-            android:layout_margin="5dp"
+        <TextView
+            android:id="@+id/tv14"
+            android:textSize="20sp"
             android:layout_below="@+id/et_username"
+            android:textColor="@color/black"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Phone Number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:textSize="40sp"
+            android:background="@drawable/edittext_design"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/tv14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:ems="10"
-            android:hint="phone number"
             android:id="@+id/et_phone_number" />
 
-        <EditText
-            android:layout_margin="5dp"
+        <TextView
+            android:id="@+id/tv15"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:text="Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/et_phone_number"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"/>
+
+        <EditText
+            android:textSize="40sp"
+            android:background="@drawable/edittext_design"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/tv15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:hint="password"
             android:id="@+id/et_password" />
 
-        <EditText
-            android:layout_margin="5dp"
+        <TextView
+            android:id="@+id/tv16"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:text="Describe yourself"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/et_password"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"/>
+
+        <EditText
+            android:textSize="40sp"
+            android:background="@drawable/edittext_design"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/tv16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textLongMessage"
             android:ems="10"
-            android:hint="About yourself"
             android:id="@+id/et_description" />
 
-        <EditText
-            android:layout_margin="5dp"
+        <TextView
+            android:id="@+id/tv17"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:text="Date Of Birth (DDMMYYYY)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/et_description"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" />
+
+        <EditText
+            android:textSize="40sp"
+            android:background="@drawable/edittext_design"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/tv17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="text|date"
@@ -83,6 +170,8 @@
             android:id="@+id/et_dob" />
 
         <Button
+            android:textSize="40sp"
+            android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
             android:text="Register"
             android:layout_centerHorizontal="true"
@@ -90,6 +179,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/et_dob"
             android:id="@+id/register_btn" />
+
+        <TextView
+            android:gravity="center"
+            android:layout_below="@+id/register_btn"
+            android:id="@+id/login_here_tv"
+            android:textStyle="bold"
+            android:text="Already a member! Login here"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
 
     </RelativeLayout>
 

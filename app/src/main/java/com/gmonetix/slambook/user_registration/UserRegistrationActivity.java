@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -29,6 +30,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.gmonetix.slambook.R;
+import com.gmonetix.slambook.helper.Const;
+import com.gmonetix.slambook.user_login.UserLoginActivity;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -55,18 +58,14 @@ import java.util.Map;
 public class UserRegistrationActivity extends AppCompatActivity {
 
     private ImageView circleimageview;
-    private static final int GALLERY_INTENT_ACTIVITY = 1;
     private String name, email, username, password, description, dob, phonenumber;
     private EditText Name, Email, Username, Password, Description, Dob, PhoneNumber;
     Button submit;
-    AlertDialog.Builder builder;
-//    String url_register = "http://www.gmonetix.com/slambook/register.php";
+    TextView loginHere;
 
     private Bitmap bitmap;
 
     private int PICK_IMAGE_REQUEST = 1;
-
-    private String UPLOAD_URL ="http://www.gmonetix.com/slambook/register.php";
 
     private String KEY_IMAGE = "image";
     private String KEY_NAME = "name";
@@ -94,6 +93,13 @@ public class UserRegistrationActivity extends AppCompatActivity {
                 uploadImage();
             }
         });
+
+        loginHere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserRegistrationActivity.this, UserLoginActivity.class));
+            }
+        });
     }
 
     private void init() {
@@ -106,6 +112,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
         PhoneNumber = (EditText) findViewById(R.id.et_phone_number);
         submit = (Button) findViewById(R.id.register_btn);
         circleimageview = (ImageView) findViewById(R.id.iv_profile_image);
+        loginHere = (TextView) findViewById(R.id.login_here_tv);
     }
 
     @Override
@@ -135,7 +142,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
     private void uploadImage(){
         //Showing the progress dialog
         final ProgressDialog loading = ProgressDialog.show(this,"Uploading...","Please wait...",false,false);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, UPLOAD_URL,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Const.register_url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
@@ -158,7 +165,11 @@ public class UserRegistrationActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 //Converting Bitmap to String
-                String image = getStringImage(bitmap);
+                String image = "";
+                if (bitmap != null)
+                {
+                    image = getStringImage(bitmap);
+                }
 
                 //Getting Image Name
                 name = Name.getText().toString().trim();
@@ -185,6 +196,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                 //returning parameters
                 return params;
             }
+
         };
 
         //Creating a Request Queue
