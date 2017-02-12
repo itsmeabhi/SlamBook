@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.gmonetix.slambook.R;
+import com.gmonetix.slambook.SearchFriendsActivity;
 import com.gmonetix.slambook.helper.Const;
 import com.gmonetix.slambook.helper.Font;
 import com.gmonetix.slambook.user_registration.UserRegistrationActivity;
@@ -33,7 +34,7 @@ public class UserLoginActivity extends AppCompatActivity {
     Button signIn;
     private TextView toolBarTextView;
     private Font font;
-    private TextView signUp;
+    private TextView signUp, Search;
 
 
     @Override
@@ -51,6 +52,13 @@ public class UserLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(UserLoginActivity.this, UserRegistrationActivity.class));
                 finish();
+            }
+        });
+
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserLoginActivity.this, SearchFriendsActivity.class));
             }
         });
 
@@ -103,6 +111,7 @@ public class UserLoginActivity extends AppCompatActivity {
         loginPassword = (EditText) findViewById(R.id.password_login);
         loginUserName = (EditText) findViewById(R.id.username_login);
         signUp = (TextView) findViewById(R.id.register_from_login_screen);
+        Search = (TextView) findViewById(R.id.search_friends_tv);
         font = new Font();
 
     }

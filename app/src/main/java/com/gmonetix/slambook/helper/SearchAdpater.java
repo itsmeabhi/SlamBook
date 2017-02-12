@@ -3,6 +3,7 @@ package com.gmonetix.slambook.helper;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +71,7 @@ public class SearchAdpater extends BaseAdapter{
         holder.Description.setText(searchedFriends.get(position).getDescription());
 
         final ViewHolder finalHolder = holder;
+        Log.d("image url",searchedFriends.get(position).getImageUrl());
         ImageLoader.getInstance().displayImage(searchedFriends.get(position).getImageUrl(), holder.profilePic, new ImageLoadingListener() {
             @Override
             public void onLoadingStarted(String s, View view) {
@@ -78,6 +80,8 @@ public class SearchAdpater extends BaseAdapter{
 
             @Override
             public void onLoadingFailed(String s, View view, FailReason failReason) {
+                finalHolder.profilePic.setImageResource(R.drawable.profile);
+                finalHolder.progressBar.setVisibility(View.GONE);
 
             }
 

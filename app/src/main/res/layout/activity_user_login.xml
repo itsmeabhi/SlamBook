@@ -84,16 +84,33 @@
         android:layout_below="@+id/password_login"
         android:layout_centerHorizontal="true"
         android:id="@+id/signin" />
-
-    <TextView
-        android:gravity="center"
-        android:id="@+id/register_from_login_screen"
-        android:layout_margin="20dp"
+    <ScrollView
         android:layout_below="@+id/signin"
-        android:textColor="#000000"
-        android:text="Not a member yet? Sign up!"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:id="@+id/register_from_login_screen"
+                android:layout_margin="20dp"
+                android:textColor="#000000"
+                android:text="Not a member yet? Sign up!"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/search_friends_tv"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:text="Search Friends"
+                android:layout_below="@+id/register_from_login_screen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

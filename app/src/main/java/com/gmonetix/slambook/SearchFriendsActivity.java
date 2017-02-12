@@ -30,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,10 +64,12 @@ public class SearchFriendsActivity extends AppCompatActivity {
 
         Name = (EditText) findViewById(R.id.name_search);
         Search = (Button) findViewById(R.id.btn_search);
+        searchedFriends = new ArrayList<>();
 
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 name = Name.getText().toString().trim();
 
                 RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -76,12 +79,12 @@ public class SearchFriendsActivity extends AppCompatActivity {
                             public void onResponse(String s) {
                                 try {
                                     //Gson gson = new Gson();
-                                    SearchFriendsModel model = new SearchFriendsModel();
+                                    Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
                                     JSONArray jsonArray = new JSONArray(s);
                                     for(int i=0;i<jsonArray.length();i++)
                                     {
                                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-
+                                        SearchFriendsModel model = new SearchFriendsModel();
                                         model.setCode(jsonObject.getString("code"));
                                         model.setName(jsonObject.getString("name"));
                                         model.setEmail(jsonObject.getString("email"));
