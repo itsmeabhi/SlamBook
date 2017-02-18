@@ -23,7 +23,7 @@ public class SearchAdpater extends BaseAdapter{
 
     private Context context;
     private List<SearchFriendsModel> searchedFriends;
-    Font font;
+    Utils utils;
 
     public SearchAdpater(Context context, List<SearchFriendsModel> searchedFriends) {
         this.context = context;
@@ -55,19 +55,17 @@ public class SearchAdpater extends BaseAdapter{
             convertView = mInflater.inflate(R.layout.search_friends_sample_layout, null);
 
             holder.Name = (TextView) convertView.findViewById(R.id.name_search);
-            holder.Email = (TextView) convertView.findViewById(R.id.email_search);
             holder.Description = (TextView) convertView.findViewById(R.id.description_search);
             holder.profilePic = (ImageView) convertView.findViewById(R.id.profile_pic_search);
             holder.progressBar = (ProgressBar) convertView.findViewById(R.id.progress_bar_profile_pic_search);
 
-            font  = new Font();
+            utils = new Utils();
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         holder.Name.setText(searchedFriends.get(position).getName());
-        holder.Email.setText(searchedFriends.get(position).getEmail());
         holder.Description.setText(searchedFriends.get(position).getDescription());
 
         final ViewHolder finalHolder = holder;
@@ -96,15 +94,13 @@ public class SearchAdpater extends BaseAdapter{
             }
         });
 
-        font.setFont(context,holder.Name);
-        font.setFont(context,holder.Email);
-        font.setFont(context,holder.Description);
+        utils.setFont(context,holder.Name);
+        utils.setFont(context,holder.Description);
 
         return convertView;
     }
     private class ViewHolder{
         private TextView Name;
-        private TextView Email;
         private TextView Description;
         private ImageView profilePic;
         private ProgressBar progressBar;

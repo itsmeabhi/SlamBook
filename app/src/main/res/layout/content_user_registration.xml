@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/colorPrimary"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.gmonetix.slambook.user_registration.UserRegistrationActivity"
     tools:showIn="@layout/activity_user_registration">
@@ -20,14 +20,14 @@
             android:textColor="@color/black"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="Name"
+            android:text="Name*"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
             android:textColor="@color/black"
             android:layout_below="@+id/tv11"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
             android:layout_width="match_parent"
@@ -43,12 +43,13 @@
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_below="@+id/et_name"
-            android:text="Email"
+            android:text="Email*"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
-            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
             android:layout_below="@+id/tv12"
@@ -65,12 +66,13 @@
             android:layout_below="@+id/et_email"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="Username"
+            android:text="Username*"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
-            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
             android:layout_width="match_parent"
@@ -87,12 +89,13 @@
             android:textColor="@color/black"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="Phone Number"
+            android:text="Phone Number*"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
-            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
             android:layout_below="@+id/tv14"
@@ -106,7 +109,7 @@
             android:id="@+id/tv15"
             android:textSize="20sp"
             android:textColor="@color/black"
-            android:text="Password"
+            android:text="Password*"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/et_phone_number"
@@ -114,7 +117,8 @@
             android:layout_marginStart="8dp"/>
 
         <EditText
-            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
             android:layout_below="@+id/tv15"
@@ -136,7 +140,8 @@
             android:layout_marginStart="8dp"/>
 
         <EditText
-            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
             android:layout_below="@+id/tv16"
@@ -150,37 +155,59 @@
             android:id="@+id/tv17"
             android:textSize="20sp"
             android:textColor="@color/black"
-            android:text="Date Of Birth (DDMMYYYY)"
+            android:text="Date Of Birth*"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/et_description"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" />
+            android:layout_toRightOf="@+id/et_dob"
+            android:layout_margin="5dp" />
 
-        <EditText
-            android:textSize="40sp"
-            android:background="@drawable/edittext_design"
+        <ImageButton
+            android:background="@drawable/ic_date"
             android:layout_margin="5dp"
-            android:layout_below="@+id/tv17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text|date"
-            android:ems="10"
-            android:hint="Date of Birth"
+            android:layout_below="@+id/et_description"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:id="@+id/et_dob" />
 
+        <RadioGroup
+            android:orientation="horizontal"
+            android:id="@+id/radio_group_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_dob">
+
+            <RadioButton
+                android:text="Male"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/maleRadioBtn" />
+
+            <RadioButton
+                android:text="Female"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/femaleRadioBtn" />
+
+        </RadioGroup>
+
         <Button
-            android:textSize="40sp"
+            android:textColor="@color/black"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
             android:text="Register"
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/et_dob"
+            android:layout_below="@+id/radio_group_container"
             android:id="@+id/register_btn" />
 
         <TextView
+            android:textColor="@color/black"
             android:gravity="center"
             android:layout_below="@+id/register_btn"
             android:id="@+id/login_here_tv"
@@ -189,8 +216,6 @@
             android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-
 
     </RelativeLayout>
 

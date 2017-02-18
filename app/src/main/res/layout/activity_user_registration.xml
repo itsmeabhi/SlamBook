@@ -7,6 +7,8 @@
     android:fitsSystemWindows="true"
     tools:context="com.gmonetix.slambook.user_registration.UserRegistrationActivity">
 
+    <include layout="@layout/content_user_registration" />
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -19,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            android:background="@drawable/eg2"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -29,16 +32,14 @@
                 android:id="@+id/iv_profile_image"
                 android:layout_gravity="end"
                 android:layout_margin="16dp"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:src="@drawable/profile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/click"
                 app:civ_border_width="2dp"
                 app:civ_border_color="#FF000000"/>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_user_registration" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -3,32 +3,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_search_friends"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
     android:layout_height="match_parent"
     tools:context="com.gmonetix.slambook.SearchFriendsActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Name"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/name_search" />
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:layout_alignParentTop="true">
+        <include
+            layout="@layout/toolbar"/>
 
-    <Button
-        android:text="Search"
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/app_bar"
+        android:layout_above="@+id/footer1"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:background="@drawable/edittext_design"
+            android:textColor="@color/black"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="30sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Type friend's name"
+            android:ems="10"
+            android:id="@+id/name_search" />
+
+        <LinearLayout
+            android:background="@color/bg_login"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_btn_search" >
+
+            <TextView
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/tv_search"
+                android:textColor="@color/black"
+                android:text="Search"
+                android:textSize="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        <ListView
+            android:id="@+id/search_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/high4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/name_search"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/btn_search" />
+        android:layout_height="wrap_content" />
 
-    <ListView
-        android:id="@+id/search_list_view"
-        android:layout_below="@+id/btn_search"
+    <ImageView
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/des3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/footer1"
+        android:src="@drawable/footer1"
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 </RelativeLayout>

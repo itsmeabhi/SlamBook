@@ -1,11 +1,13 @@
 package com.gmonetix.slambook.user_login;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
@@ -16,25 +18,24 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.gmonetix.slambook.R;
-import com.gmonetix.slambook.SearchFriendsActivity;
 import com.gmonetix.slambook.helper.Const;
-import com.gmonetix.slambook.helper.Font;
+import com.gmonetix.slambook.helper.Utils;
 import com.gmonetix.slambook.user_registration.UserRegistrationActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserLoginActivity extends AppCompatActivity {
+public class UserLoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText loginUserName, loginPassword;
     private String username, password;
-    Button signIn;
-    private TextView toolBarTextView;
-    private Font font;
-    private TextView signUp, Search;
+    private Button signIn;
+    private TextView signUp, tv1, tv2, sampleTextLogin;
+    private Utils utils;
 
 
     @Override
@@ -44,27 +45,47 @@ public class UserLoginActivity extends AppCompatActivity {
 
         initialize();
 
-        toolBarTextView.setText("Login");
-        font.setFont(getApplicationContext(),toolBarTextView);
+        ImageView imageView = (ImageView) findViewById(R.id.sample_image_login_screen);
+        AnimationDrawable animation = new AnimationDrawable();
+        animation.addFrame(getResources().getDrawable(R.drawable.boy2),2000);
+        animation.addFrame(getResources().getDrawable(R.drawable.face_hi_girl),2000);
+        animation.setOneShot(false);
+        imageView.setBackgroundDrawable(animation);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        animation.start();
 
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(UserLoginActivity.this, UserRegistrationActivity.class));
-                finish();
-            }
-        });
+        utils.setFont(UserLoginActivity.this,tv1);
+        utils.setFont(UserLoginActivity.this,signUp);
+        utils.setFont(UserLoginActivity.this,tv2);
+        utils.setFont(UserLoginActivity.this,sampleTextLogin);
+        utils.setFont(UserLoginActivity.this,loginUserName);
+        utils.setFont(UserLoginActivity.this,loginPassword);
 
-        Search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(UserLoginActivity.this, SearchFriendsActivity.class));
-            }
-        });
+        signUp.setOnClickListener(this);
+        signIn.setOnClickListener(this);
 
-        signIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
+
+    }
+
+    private void initialize() {
+
+        signIn = (Button) findViewById(R.id.signin);
+        loginPassword = (EditText) findViewById(R.id.password_login);
+        loginUserName = (EditText) findViewById(R.id.username_login);
+        signUp = (TextView) findViewById(R.id.register_from_login_screen);
+        sampleTextLogin = (TextView) findViewById(R.id.tvLoginHere);
+        tv1 = (TextView) findViewById(R.id.tv1);
+        tv2 = (TextView) findViewById(R.id.tv2);
+        utils = new Utils();
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.signin: //signIn
+
                 username = loginUserName.getText().toString();
                 password = loginPassword.getText().toString();
 
@@ -99,20 +120,13 @@ public class UserLoginActivity extends AppCompatActivity {
                 };
                 RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
                 requestQueue.add(stringRequest);
-            }
-        });
 
-    }
+                break;
+            case R.id.register_from_login_screen: //signUp
 
-    private void initialize() {
+                startActivity(new Intent(UserLoginActivity.this, UserRegistrationActivity.class));
 
-        toolBarTextView = (TextView) findViewById(R.id.toolbar_textView);
-        signIn = (Button) findViewById(R.id.signin);
-        loginPassword = (EditText) findViewById(R.id.password_login);
-        loginUserName = (EditText) findViewById(R.id.username_login);
-        signUp = (TextView) findViewById(R.id.register_from_login_screen);
-        Search = (TextView) findViewById(R.id.search_friends_tv);
-        font = new Font();
-
+                break;
+        }
     }
 }

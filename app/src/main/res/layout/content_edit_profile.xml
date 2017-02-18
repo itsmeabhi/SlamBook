@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.gmonetix.slambook.user_profile.EditProfile"
+    tools:showIn="@layout/activity_edit_profile">
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv01"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:background="@drawable/edittext_design"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/edit_profile_name" />
+
+        <TextView
+            android:id="@+id/tv02"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:background="@drawable/edittext_design"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/edit_profile_email" />
+
+        <TextView
+            android:id="@+id/tv03"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Phone Number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:background="@drawable/edittext_design"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/edit_profile_phone_number" />
+
+        <TextView
+            android:id="@+id/tv04"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:text="Describe yourself"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"/>
+
+        <EditText
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:background="@drawable/edittext_design"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textLongMessage"
+            android:ems="10"
+            android:id="@+id/edit_profile_description" />
+
+        <LinearLayout
+            android:id="@+id/edit_profile_ll_dob"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_edit_profile_dob"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:text="Date Of Birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" />
+
+            <ImageButton
+                android:background="@drawable/ic_date"
+                android:layout_margin="5dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/edit_profile_dob" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:orientation="horizontal"
+            android:id="@+id/edit_profile_radio_group_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:text="Male"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_profile_maleRadioBtn" />
+
+            <RadioButton
+                android:text="Female"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_profile_femaleRadioBtn" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:background="@color/btn_login"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_profile_ll_save_changes" >
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/tv05"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:text="Save Changes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" />
+
+            </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

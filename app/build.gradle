@@ -29,13 +29,14 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:design:25.1.0'
-    testCompile 'junit:junit:4.12'
     compile files('libs/volley.jar')
+    compile files('libs/universal-image-loader-1.9.5.jar')
+    compile files('libs/gson-2.2.2.jar')
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.android.support:design:25.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.14.0'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
-    compile files('libs/universal-image-loader-1.9.5.jar')
-    compile files('libs/gson-2.2.2.jar')
+    compile 'com.android.support:support-v4:25.1.1'
+    testCompile 'junit:junit:4.12'
 }

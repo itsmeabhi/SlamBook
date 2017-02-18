@@ -3,15 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/toolbar"
     app:layout_collapseMode="pin"
     app:popupTheme="@style/AppTheme.PopupOverlay"
     android:id="@+id/toolbar">
-
-    <TextView
-        android:textSize="20sp"
-        android:id="@+id/toolbar_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 </android.support.v7.widget.Toolbar>
