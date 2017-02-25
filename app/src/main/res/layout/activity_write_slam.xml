@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.gmonetix.slambook.WriteSlam"
-    android:background="@color/bg_login">
+    android:background="@color/colorPrimary">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,9 +30,9 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:src="@drawable/pencil1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:src="@drawable/introducing_me"
+                android:layout_width="250dp"
+                android:layout_height="73dp" />
 
             <EditText
                 android:hint="Real Name"

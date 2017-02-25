@@ -3,6 +3,7 @@ package com.gmonetix.slambook;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.gmonetix.slambook.helper.Const;
 import com.gmonetix.slambook.helper.SearchAdpater;
 import com.gmonetix.slambook.helper.SearchFriendsModel;
 import com.gmonetix.slambook.helper.Utils;
@@ -36,32 +38,47 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SearchFriendsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class SearchFriendsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
 
-    private EditText Name;
+    private EditText etName;
     private LinearLayout Search;
-    private TextView tv1;
+    private TextView tv1, tv_friend_name_search;
+    private ListView searchedListView;
+    private Toolbar toolbar;
+
+    public List<SearchFriendsModel> searchedFriends = null ;
     private Utils utils;
     private String name;
-    String url_search = "http://192.168.215.2/test/search.php";
+    private SearchAdpater adapter;
+    private boolean firstRun = true;
+
     private static final String NAME_INTENT = "name";
     private static final String EMAIL_INTENT = "email";
     private static final String PHOTO_INTENT = "photo";
     private static final String USERNAME_INTENT = "username";
     private static final String DESCRIPTION_INTENT = "description";
     private static final String DOB_INTENT = "dob";
-    public List<SearchFriendsModel> searchedFriends;
-    private ListView searchedListView;
-    SearchAdpater adapter;
+    private static final String GENDER_INTENT = "gender";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_friends);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        SearchFriendsActivity.this.setTitle("Search");
 
+        init();
+
+        searchedFriends = new ArrayList<>();
+        searchedListView.setOnItemClickListener(this);
+        Search.setOnClickListener(this);
+    }
+
+    private void init() {
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory(true)
-                .cacheOnDisk(true)
+                .cacheInMemory(false)
+                .cacheOnDisk(false)
                 .build();
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
                 .defaultDisplayImageOptions(defaultOptions)
@@ -69,87 +86,27 @@ public class SearchFriendsActivity extends AppCompatActivity implements AdapterV
         ImageLoader.getInstance().init(config);
 
         searchedListView = (ListView) findViewById(R.id.search_list_view);
-
-        Name = (EditText) findViewById(R.id.name_search);
+        etName = (EditText) findViewById(R.id.name_search);
         Search = (LinearLayout) findViewById(R.id.ll_btn_search);
         tv1 = (TextView) findViewById(R.id.tv_search);
+        tv_friend_name_search = (TextView) findViewById(R.id.tv_friend_name_search);
 
         utils = new Utils();
-        utils.setFont(SearchFriendsActivity.this,Name);
+        utils.setFont(SearchFriendsActivity.this,etName);
         utils.setFont(SearchFriendsActivity.this,tv1);
-        searchedFriends = new ArrayList<>();
-
-        searchedListView.setOnItemClickListener(this);
-
-        Search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                name = Name.getText().toString().trim();
-
-                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url_search,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String s) {
-                                try {
-                                    Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
-                                    JSONArray jsonArray = new JSONArray(s);
-                                    for(int i=0;i<jsonArray.length();i++)
-                                    {
-                                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                        SearchFriendsModel model = new SearchFriendsModel();
-                                        model.setCode(jsonObject.getString("code"));
-                                        model.setName(jsonObject.getString("name"));
-                                        model.setEmail(jsonObject.getString("email"));
-                                        model.setImageUrl(jsonObject.getString("image"));
-                                        model.setDescription(jsonObject.getString("description"));
-                                        model.setUsername(jsonObject.getString("user_name"));
-                                        model.setDob(jsonObject.getString("dob"));
-                                        searchedFriends.add(model);
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                                finally {
-                                    adapter = new SearchAdpater(SearchFriendsActivity.this,searchedFriends);
-                                    searchedListView.setAdapter(adapter);
-                                }
-                            }
-                        },
-
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError volleyError) {
-
-                                //Showing toast
-                                Toast.makeText(SearchFriendsActivity.this, "Error", Toast.LENGTH_LONG).show();
-                            }
-                        }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-
-                        Map<String,String> params = new HashMap<String, String>();
-                        params.put("name",name);
-                        return params;
-                    }
-                };
-                requestQueue.add(stringRequest);
-            }
-        });
+        utils.setFont(SearchFriendsActivity.this,tv_friend_name_search);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         if (searchedFriends !=null)
-            searchedFriends = null;
-        finish();
+            searchedFriends.clear();
+        SearchFriendsActivity.this.finish();
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
         Intent intent = new Intent(SearchFriendsActivity.this, FriendProfile.class);
         intent.putExtra(NAME_INTENT,searchedFriends.get(position).getName());
         intent.putExtra(EMAIL_INTENT,searchedFriends.get(position).getEmail());
@@ -157,7 +114,74 @@ public class SearchFriendsActivity extends AppCompatActivity implements AdapterV
         intent.putExtra(DESCRIPTION_INTENT,searchedFriends.get(position).getDescription());
         intent.putExtra(PHOTO_INTENT,searchedFriends.get(position).getImageUrl());
         intent.putExtra(DOB_INTENT,searchedFriends.get(position).getDob());
+        intent.putExtra(GENDER_INTENT,searchedFriends.get(position).getGender());
         startActivity(intent);
-
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ll_btn_search:
+                name = etName.getText().toString().trim();
+                if (name.equals("")) {
+                    Toast.makeText(SearchFriendsActivity.this,"Enter friend's name to search !",Toast.LENGTH_SHORT).show();
+                } else {
+
+                    if (firstRun) {
+                        firstRun = false;
+                    } else {
+                        adapter = null;
+                        searchedFriends.clear();
+                        searchedListView.setAdapter(null);
+                    }
+
+                    RequestQueue requestQueue = Volley.newRequestQueue(SearchFriendsActivity.this);
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, Const.url_search,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String s) {
+                                    try {
+                                        JSONArray jsonArray = new JSONArray(s);
+                                        for(int i=0;i<jsonArray.length();i++)
+                                        {
+                                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                            SearchFriendsModel model = new SearchFriendsModel();
+                                            model.setCode(jsonObject.getString(Const.PHP_CODE));
+                                            model.setName(jsonObject.getString(Const.USER_ACCOUNT_DATA_NAME));
+                                            model.setEmail(jsonObject.getString(Const.USER_ACCOUNT_DATA_EMAIL));
+                                            model.setImageUrl(jsonObject.getString(Const.USER_ACCOUNT_DATA_IMAGE));
+                                            model.setDescription(jsonObject.getString(Const.USER_ACCOUNT_DATA_DESCRIPTION));
+                                            model.setUsername(jsonObject.getString(Const.USER_ACCOUNT_DATA_USER_NAME));
+                                            model.setDob(jsonObject.getString(Const.USER_ACCOUNT_DATA_DOB));
+                                            model.setGender(jsonObject.getString(Const.USER_ACCOUNT_DATA_GENDER));
+                                            searchedFriends.add(model);
+                                        }
+                                        adapter = new SearchAdpater(SearchFriendsActivity.this,searchedFriends);
+                                        searchedListView.setAdapter(adapter);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                        Toast.makeText(SearchFriendsActivity.this,"No friends found with given name !",Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            },
+
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError volleyError) {
+                                    Toast.makeText(SearchFriendsActivity.this,"Error ! Please try after sometime",Toast.LENGTH_LONG).show();
+                                }
+                            }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String,String> params = new HashMap<String, String>();
+                            params.put(Const.USER_ACCOUNT_DATA_NAME,name);
+                            return params;
+                        }
+                    };
+                    requestQueue.add(stringRequest);
+                }
+                break;
+        }
+    }
+
 }

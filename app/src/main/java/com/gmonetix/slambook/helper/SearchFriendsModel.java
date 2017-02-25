@@ -2,7 +2,15 @@ package com.gmonetix.slambook.helper;
 
 public class SearchFriendsModel {
 
-    private String name, email, description, imageUrl, code, username, dob;
+    private String name, email, description, imageUrl, code, username, dob, gender;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public String getUsername() {
         return username;

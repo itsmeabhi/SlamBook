@@ -5,6 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:scrollbars="vertical"
+    android:scrollbarFadeDuration="2000"
+    android:scrollbarSize="10dp"
+    android:verticalScrollbarPosition="right"
+    android:scrollbarThumbVertical="@drawable/edittext_design"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.gmonetix.slambook.user_profile.EditProfile"
     tools:showIn="@layout/activity_edit_profile">

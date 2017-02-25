@@ -5,11 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:scrollbars="vertical"
+    android:scrollbarFadeDuration="2000"
+    android:scrollbarSize="10dp"
+    android:verticalScrollbarPosition="right"
+    android:scrollbarThumbVertical="@drawable/edittext_design"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.gmonetix.slambook.user_registration.UserRegistrationActivity"
     tools:showIn="@layout/activity_user_registration">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,7 +32,6 @@
 
         <EditText
             android:textColor="@color/black"
-            android:layout_below="@+id/tv11"
             android:textSize="30sp"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
@@ -42,7 +47,6 @@
             android:textColor="@color/black"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:layout_below="@+id/et_name"
             android:text="Email*"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -52,7 +56,6 @@
             android:textSize="30sp"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
-            android:layout_below="@+id/tv12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -63,7 +66,6 @@
             android:id="@+id/tv13"
             android:textSize="20sp"
             android:textColor="@color/black"
-            android:layout_below="@+id/et_email"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:text="Username*"
@@ -79,13 +81,32 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:layout_below="@+id/tv13"
             android:id="@+id/et_username" />
+
+        <TextView
+            android:id="@+id/tv15"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:text="Password*"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"/>
+
+        <EditText
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:background="@drawable/edittext_design"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/et_password" />
 
         <TextView
             android:id="@+id/tv14"
             android:textSize="20sp"
-            android:layout_below="@+id/et_username"
             android:textColor="@color/black"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
@@ -98,35 +119,11 @@
             android:textSize="30sp"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
-            android:layout_below="@+id/tv14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:ems="10"
             android:id="@+id/et_phone_number" />
-
-        <TextView
-            android:id="@+id/tv15"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:text="Password*"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_phone_number"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"/>
-
-        <EditText
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:background="@drawable/edittext_design"
-            android:layout_margin="5dp"
-            android:layout_below="@+id/tv15"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/et_password" />
 
         <TextView
             android:id="@+id/tv16"
@@ -135,7 +132,6 @@
             android:text="Describe yourself"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/et_password"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"/>
 
@@ -144,38 +140,40 @@
             android:textSize="30sp"
             android:background="@drawable/edittext_design"
             android:layout_margin="5dp"
-            android:layout_below="@+id/tv16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textLongMessage"
             android:ems="10"
             android:id="@+id/et_description" />
 
-        <TextView
-            android:id="@+id/tv17"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:text="Date Of Birth*"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_description"
-            android:layout_toRightOf="@+id/et_dob"
-            android:layout_margin="5dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_dob"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:text="Date Of Birth*"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" />
 
-        <ImageButton
-            android:background="@drawable/ic_date"
-            android:layout_margin="5dp"
-            android:layout_below="@+id/et_description"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:id="@+id/et_dob" />
+            <ImageButton
+                android:id="@+id/ib_dob"
+                android:background="@drawable/ic_date"
+                android:layout_margin="5dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+        </LinearLayout>
 
         <RadioGroup
             android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:id="@+id/radio_group_container"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_dob">
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:text="Male"
@@ -195,28 +193,42 @@
 
         </RadioGroup>
 
-        <Button
-            android:textColor="@color/black"
-            android:background="@drawable/edittext_design"
-            android:layout_margin="5dp"
-            android:text="Register"
-            android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/radio_group_container"
-            android:id="@+id/register_btn" />
+        <LinearLayout
+            android:id="@+id/ll_register"
+            android:background="@color/bg_login"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:text="Register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_register" />
+        </LinearLayout>
 
         <TextView
             android:textColor="@color/black"
             android:gravity="center"
-            android:layout_below="@+id/register_btn"
             android:id="@+id/login_here_tv"
             android:textStyle="bold"
+            android:layout_marginTop="10dp"
             android:text="Already a member! Login here"
             android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </RelativeLayout>
+        <ImageView
+            android:src="@drawable/footer1"
+            android:layout_marginTop="40dp"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
