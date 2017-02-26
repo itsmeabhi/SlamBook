@@ -52,7 +52,7 @@ public class SearchAdpater extends BaseAdapter{
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.read_slam_sample_layout, null);
+            convertView = mInflater.inflate(R.layout.search_friends_sample_layout, null);
 
             holder.Name = (TextView) convertView.findViewById(R.id.name_search);
             holder.Description = (TextView) convertView.findViewById(R.id.description_search);

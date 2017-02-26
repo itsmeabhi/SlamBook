@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -46,7 +47,7 @@ public class SearchFriendsActivity extends AppCompatActivity implements AdapterV
     private ListView searchedListView;
     private Toolbar toolbar;
 
-    public List<SearchFriendsModel> searchedFriends = null ;
+    public List<SearchFriendsModel> searchedFriends ;
     private Utils utils;
     private String name;
     private SearchAdpater adapter;
@@ -155,9 +156,11 @@ public class SearchFriendsActivity extends AppCompatActivity implements AdapterV
                                             model.setDob(jsonObject.getString(Const.USER_ACCOUNT_DATA_DOB));
                                             model.setGender(jsonObject.getString(Const.USER_ACCOUNT_DATA_GENDER));
                                             searchedFriends.add(model);
+
+                                            adapter = new SearchAdpater(SearchFriendsActivity.this,searchedFriends);
+                                            searchedListView.setAdapter(adapter);
+
                                         }
-                                        adapter = new SearchAdpater(SearchFriendsActivity.this,searchedFriends);
-                                        searchedListView.setAdapter(adapter);
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                         Toast.makeText(SearchFriendsActivity.this,"No friends found with given name !",Toast.LENGTH_LONG).show();

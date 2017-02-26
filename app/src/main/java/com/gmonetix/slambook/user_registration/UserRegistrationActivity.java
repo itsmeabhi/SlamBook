@@ -77,9 +77,10 @@ public class UserRegistrationActivity extends AppCompatActivity implements View.
         month_x = calendar.get(Calendar.MONTH);
         day_x = calendar.get(Calendar.DAY_OF_MONTH);
 
-        registered_at = DateFormat.getDateInstance().format(new Date());
+
         rbMale.setChecked(true);
         gender = "MALE";
+        registered_at = DateFormat.getDateInstance().format(new Date());
 
         profileImage.setOnClickListener(this);
         register.setOnClickListener(this);

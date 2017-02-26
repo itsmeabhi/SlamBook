@@ -2,23 +2,23 @@ package com.gmonetix.slambook.helper;
 
 public class Const {
 
-    public static final String login_url = "http://192.168.215.2/test/login.php";
+    public static final String login_url = "http://www.gmonetix.com/slambook/login.php";
 
-    public static final String register_url ="http://192.168.215.2/test/register.php";
+    public static final String register_url ="http://www.gmonetix.com/slambook/register.php";
 
-    public static final String url_search = "http://192.168.215.2/test/search.php";
+    public static final String url_search = "http://www.gmonetix.com/slambook/search.php";
 
-    public static final String update_account_details = "http://192.168.215.2/test/updateAccountDetails.php";
+    public static final String update_account_details = "http://www.gmonetix.com/slambook/updateAccountDetails.php";
 
-    public static final String change_password = "http://192.168.215.2/test/passwordChange.php";
+    public static final String change_password = "http://www.gmonetix.com/slambook/passwordChange.php";
 
-    public static final String delete_account = "http://192.168.215.2/test/deleteAccount.php";
+    public static final String delete_account = "http://www.gmonetix.com/slambook/deleteAccount.php";
 
-    public static final String read_slam_model = "http://192.168.215.2/test/readSlamModel.php";
+    public static final String read_slam_model = "http://www.gmonetix.com/slambook/readSlamModel.php";
 
-    public static final String read_slam = "http://192.168.215.2/test/readSlam.php";
+    public static final String read_slam = "http://www.gmonetix.com/slambook/readSlam.php";
 
-    public static final String get_image_using_username = "http://192.168.215.2/test/getImage.php";
+    public static final String get_image_using_username = "http://www.gmonetix.com/slambook/getImage.php";
 
     public static final String PHP_CODE = "code";
     
