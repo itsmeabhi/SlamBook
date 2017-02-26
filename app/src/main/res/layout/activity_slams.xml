@@ -988,7 +988,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/food"
+                        android:src="@drawable/fav_sports"
                         android:scaleType="fitXY"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />

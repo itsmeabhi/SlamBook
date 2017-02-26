@@ -51,6 +51,7 @@
         <TextView
             android:id="@+id/tv_home_user1"
             android:text="Sent to"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_marginTop="10dp"
@@ -61,6 +62,7 @@
 
         <TextView
             android:id="@+id/tv_home_user2"
+            android:textStyle="bold"
             android:text="Received From"
             android:gravity="center"
             android:layout_weight="1"
@@ -74,9 +76,7 @@
         <View
             android:id="@+id/view1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/ll1"
-            android:background="@color/bg_login"
+            android:layout_below="@+id/ll2"
             android:layout_width="5dp"
             android:layout_height="match_parent"
             />
@@ -98,5 +98,33 @@
         android:layout_toEndOf="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+
+    <ImageView
+        android:id="@+id/footer1"
+        android:src="@drawable/footer1"
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/high4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:src="@drawable/des3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/imageView2" />
 
 </RelativeLayout>
