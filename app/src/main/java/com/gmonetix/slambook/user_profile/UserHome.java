@@ -67,22 +67,24 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
         init();
         fromData = new ArrayList<>();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Const.get_image_using_username,
+        StringRequest stringRequestReceived = new StringRequest(Request.Method.POST, Const.get_image_using_username,
                 new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String s) {
+                    public void onResponse(String s1) {
                         try {
-                            JSONArray jsonArray = new JSONArray(s);
-                            Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG);
+                            JSONArray jsonArray = new JSONArray(s1);
                             for (int i=0;i<jsonArray.length();i++) {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 HomeModel model = new HomeModel();
                                 model.setImage(jsonObject.getString(Const.USER_ACCOUNT_DATA_IMAGE));
                                 model.setFromUserName(jsonObject.getString(Const.USER_ACCOUNT_DATA_USER_NAME));
                                 fromData.add(model);
+                                utils.setSlamsReceived(UserHome.this,i);
+                                tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
                         } finally {
                             adapter = new HomeAdapter(UserHome.this,fromData);
                             fromListView.setAdapter(adapter);
@@ -92,6 +94,7 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 volleyError.printStackTrace();
+                tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
             }
         }){
             @Override
@@ -101,8 +104,49 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                 return params;
             }
         };
+
+        StringRequest stringRequestSent = new StringRequest(Request.Method.POST, Const.number_of_slams_sent,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s2) {
+                        try {
+                            JSONArray jsonArray = new JSONArray(s2);
+                            for (int i=0;i<jsonArray.length();i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                HomeModel model = new HomeModel();
+                                model.setImage(jsonObject.getString(Const.USER_ACCOUNT_DATA_IMAGE));
+                                model.setFromUserName(jsonObject.getString(Const.USER_ACCOUNT_DATA_USER_NAME));
+                                fromData.add(model);
+                                utils.setSlamsReceived(UserHome.this,i);
+                                tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
+                        } finally {
+                            adapter = new HomeAdapter(UserHome.this,fromData);
+                            fromListView.setAdapter(adapter);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                volleyError.printStackTrace();
+                tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                params.put(Const.USER_ACCOUNT_DATA_USER_NAME,utils.getUserName(UserHome.this));
+                return params;
+            }
+        };
+
+
         RequestQueue requestQueue = Volley.newRequestQueue(UserHome.this);
-        requestQueue.add(stringRequest);
+        requestQueue.add(stringRequestReceived);
+        requestQueue.add(stringRequestSent);
 
     }
 

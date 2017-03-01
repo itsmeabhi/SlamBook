@@ -25,6 +25,12 @@ public class Utils {
     private static final String PASSWORD_SP = "password_SP";
     private static final String PASSWORD = "password";
 
+    private static final String SLAMS_SENT_SP = "slams_sent_sp";
+    private static final String SLAMS_SENT = "slams_sent";
+    private static final String SLAMS_RECEIVED_SP = "slams_received_sp";
+    private static final String SLAMS_RECEIVED = "slams_received";
+
+
 
     public void setFont(Context _context, TextView textView) {
         Typeface roboto = Typeface.createFromAsset(_context.getAssets(), "font.otf");
@@ -85,6 +91,38 @@ public class Utils {
             password = sharedPreference.getString(PASSWORD,"");
         }
         return password;
+    }
+
+    public void setSlamsSent(Activity activity, int number) {
+        sharedPreference = activity.getSharedPreferences(SLAMS_SENT_SP , Context.MODE_PRIVATE);
+        editor = sharedPreference.edit();
+        editor.putInt(SLAMS_SENT,number);
+        editor.commit();
+    }
+
+    public int getSlamsSent(Activity activity) {
+        int number = 0;
+        sharedPreference = activity.getSharedPreferences(SLAMS_SENT_SP , Context.MODE_PRIVATE);
+        if(sharedPreference.contains(SLAMS_SENT)){
+            number = sharedPreference.getInt(SLAMS_SENT,0);
+        }
+        return number;
+    }
+
+    public void setSlamsReceived(Activity activity, int number) {
+        sharedPreference = activity.getSharedPreferences(SLAMS_RECEIVED_SP , Context.MODE_PRIVATE);
+        editor = sharedPreference.edit();
+        editor.putInt(SLAMS_RECEIVED,number);
+        editor.commit();
+    }
+
+    public int getSlamsReceived(Activity activity) {
+        int number = 0;
+        sharedPreference = activity.getSharedPreferences(SLAMS_RECEIVED_SP , Context.MODE_PRIVATE);
+        if(sharedPreference.contains(SLAMS_RECEIVED)){
+            number = sharedPreference.getInt(SLAMS_RECEIVED,0);
+        }
+        return number;
     }
 
     public void storeUserData(String userJsonData , String fileName, Activity activity){
