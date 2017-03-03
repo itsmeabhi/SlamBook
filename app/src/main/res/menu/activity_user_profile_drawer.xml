@@ -4,27 +4,28 @@
     <group>
         <item
             android:id="@+id/nav_user_profile_profile"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_user_profile"
             android:title="Profile" />
         <item
             android:id="@+id/nav_user_profile_search_friend"
-            android:icon="@drawable/ic_settings"
+            android:icon="@drawable/ic_search"
             android:title="Search Friends" />
         <item
-            android:id="@+id/nav_user_profile_write_slam"
-            android:icon="@drawable/ic_settings"
-            android:title="Write Slam" />
-        <item
             android:id="@+id/nav_user_profile_read_slam"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_read"
             android:title="Read Slam" />
+
+        <item
+            android:id="@+id/nav_user_profile_sent_slams"
+            android:icon="@drawable/ic_send"
+            android:title="Sent Slams" />
         <item
             android:id="@+id/nav_user_profile_settings"
             android:icon="@drawable/ic_settings"
             android:title="Settings" />
         <item
             android:id="@+id/nav_user_profile_logout"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_warning"
             android:title="Logout" />
     </group>
 

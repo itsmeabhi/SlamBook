@@ -22,7 +22,9 @@ public class Const {
 
     public static final String get_image_using_username = "http://192.168.215.2/test/getImage.php";
 
-    public static final String number_of_slams_sent = "http://192.168.215.2/test/slamsSent.php";
+    public static final String slams_sent = "http://192.168.215.2/test/slamsSentModel.php";
+
+    public static final String slams_sent_detials = "http://192.168.215.2/test/slamsSentDetials.php";
 
     public static final String PHP_CODE = "code";
     

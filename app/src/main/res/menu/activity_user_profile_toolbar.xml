@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group>
+        <item
+            android:id="@+id/toolbar_user_profile_help"
+            app:showAsAction="never"
+            android:title="Help" />
+        <item
+            android:id="@+id/toolbar_user_profile_visit_us"
+            app:showAsAction="never"
+            android:title="Visit Us" />
+        <item
+            android:id="@+id/toolbar_user_profile_fb"
+            app:showAsAction="never"
+            android:title="Facebook Page" />
+        <item
+            android:id="@+id/toolbar_user_profile_youtube"
+            app:showAsAction="never"
+            android:title="Youtube Channel" />
+    </group>
+
+</menu>

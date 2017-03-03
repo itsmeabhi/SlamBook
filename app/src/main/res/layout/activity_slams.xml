@@ -69,7 +69,6 @@
 
             <FrameLayout
                 android:id="@+id/frame1"
-                android:layout_below="@+id/app_bar"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="16dp"
@@ -1030,15 +1029,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-
-    <ImageView
-        android:layout_marginBottom="15dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/bff"
-        android:layout_width="80dp"
-        android:layout_height="70dp" />
-
     <ImageView
         android:id="@+id/footer1"
         android:src="@drawable/footer1"
@@ -1057,5 +1047,27 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/imageView2" />
 
+    <android.support.design.widget.FloatingActionButton
+        app:rippleColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        app:fabSize="normal"
+        android:src="@drawable/ic_write"
+        android:elevation="6dp"
+        android:id="@+id/btn_edit_slam"
+        app:pressedTranslationZ="12dp"
+        android:layout_marginRight="16dp"
+        android:layout_above="@+id/fab_slam1"/>
+
+    <include
+        android:id="@+id/fab_slam1"
+        android:layout_above="@+id/imageView2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/fab_home" />
 
 </RelativeLayout>

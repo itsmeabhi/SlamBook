@@ -13,6 +13,7 @@ import com.android.volley.toolbox.Volley;
 import com.gmonetix.slambook.R;
 import com.gmonetix.slambook.ReadSlam;
 import com.gmonetix.slambook.SearchFriendsActivity;
+import com.gmonetix.slambook.SentSlamsActivty;
 import com.gmonetix.slambook.SettingsActivity;
 import com.gmonetix.slambook.WriteSlam;
 import com.gmonetix.slambook.helper.Const;
@@ -30,6 +31,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -105,7 +107,7 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
             }
         };
 
-        StringRequest stringRequestSent = new StringRequest(Request.Method.POST, Const.number_of_slams_sent,
+        /*StringRequest stringRequestSent = new StringRequest(Request.Method.POST, Const.slams_sent,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s2) {
@@ -141,12 +143,12 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                 params.put(Const.USER_ACCOUNT_DATA_USER_NAME,utils.getUserName(UserHome.this));
                 return params;
             }
-        };
+        };*/
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(UserHome.this);
         requestQueue.add(stringRequestReceived);
-        requestQueue.add(stringRequestSent);
+      //  requestQueue.add(stringRequestSent);
 
     }
 
@@ -193,6 +195,31 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_user_profile_toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.toolbar_user_profile_help:
+                startActivity(Utils.openHelp());
+                break;
+            case R.id.toolbar_user_profile_visit_us:
+                startActivity(Utils.openWebsite());
+                break;
+            case R.id.toolbar_user_profile_fb:
+                startActivity(Utils.openFacebook(UserHome.this));
+                break;
+            case R.id.toolbar_user_profile_youtube:
+                startActivity(Utils.openYoutube(UserHome.this));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -205,11 +232,11 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.nav_user_profile_search_friend:
                 startActivity(new Intent(UserHome.this,SearchFriendsActivity.class));
                 break;
-            case R.id.nav_user_profile_write_slam:
-                startActivity(new Intent(UserHome.this,WriteSlam.class));
-                break;
             case R.id.nav_user_profile_read_slam:
                 startActivity(new Intent(UserHome.this,ReadSlam.class));
+                break;
+            case R.id.nav_user_profile_sent_slams:
+                startActivity(new Intent(UserHome.this, SentSlamsActivty.class));
                 break;
             case R.id.nav_user_profile_settings:
                 startActivity(new Intent(UserHome.this,SettingsActivity.class));
@@ -221,8 +248,10 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                 break;
 
             case R.id.nav_user_profile_help:
+                startActivity(Utils.openHelp());
                 break;
             case R.id.nav_user_profile_visit_us:
+                startActivity(Utils.openWebsite());
                 break;
 
         }

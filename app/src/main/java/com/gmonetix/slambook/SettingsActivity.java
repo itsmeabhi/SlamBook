@@ -76,7 +76,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 final AlertDialog.Builder deleteDialogue = new AlertDialog.Builder(SettingsActivity.this);
                 deleteDialogue.setTitle("Confirm delete !");
                 deleteDialogue.setMessage("Are you sure you want to delete the account?");
-                deleteDialogue.setIcon(R.drawable.ic_company_logo);
+                deleteDialogue.setIcon(R.drawable.ic_warning);
                 deleteDialogue.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(final DialogInterface dialog, int which) {

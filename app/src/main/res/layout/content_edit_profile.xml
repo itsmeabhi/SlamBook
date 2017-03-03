@@ -9,7 +9,7 @@
     android:scrollbarFadeDuration="2000"
     android:scrollbarSize="10dp"
     android:verticalScrollbarPosition="right"
-    android:scrollbarThumbVertical="@drawable/edittext_design"
+    android:scrollbarThumbVertical="@drawable/scrollbar"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.gmonetix.slambook.user_profile.EditProfile"
     tools:showIn="@layout/activity_edit_profile">

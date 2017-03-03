@@ -28,7 +28,7 @@
         android:scrollbarFadeDuration="2000"
         android:scrollbarSize="10dp"
         android:verticalScrollbarPosition="right"
-        android:scrollbarThumbVertical="@drawable/edittext_design"
+        android:scrollbarThumbVertical="@drawable/scrollbar"
         android:id="@+id/read_slam_listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -31,6 +31,7 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
     private static final String EMAIL_INTENT = "email";
     private static final String PHOTO_INTENT = "photo";
     private static final String USERNAME_INTENT = "username";
+    private static final String USERNAME_INTENT1 = "username1";
     private static final String DESCRIPTION_INTENT = "description";
     private static final String DOB_INTENT = "dob";
     private static final String GENDER_INTENT = "gender";
@@ -133,7 +134,9 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_friend_profile_write_slam:
-                startActivity(new Intent(FriendProfile.this,WriteSlam.class));
+                Intent intent = new Intent(FriendProfile.this,WriteSlam.class);
+                intent.putExtra(USERNAME_INTENT1,username);
+                startActivity(intent);
                 break;
         }
     }

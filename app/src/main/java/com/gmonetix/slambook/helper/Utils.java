@@ -5,8 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -155,6 +160,43 @@ public class Utils {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public static Intent openFacebook(Context context){
+        try {
+            context.getPackageManager().getPackageInfo("com.facebook.katana",0);
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/122591891284060"));
+        } catch (Exception e){
+            return new Intent(Intent.ACTION_VIEW,Uri.parse("https://facebook.com/gmonetix"));
+        }
+    }
+
+    public static Intent openYoutube(Context context){
+        try {
+            context.getPackageManager().getPackageInfo("com.google.android.youtube",0);
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCpfLFzQqRl01sXP7dxIQ_rg"));
+        } catch (Exception e){
+            return new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.youtube.com/channel/UCpfLFzQqRl01sXP7dxIQ_rg"));
+        }
+    }
+
+    public static Intent openWebsite(){
+          return new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.gmonetix.com"));
+    }
+
+    public static Intent openHelp(){
+        return new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.gmonetix.com/slambook/help/index.html"));
+    }
+
+    public void getUilInstance(Context context){
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+                .cacheInMemory(false)
+                .cacheOnDisk(false)
+                .build();
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
+                .defaultDisplayImageOptions(defaultOptions)
+                .build();
+        ImageLoader.getInstance().init(config);
     }
 
 }
