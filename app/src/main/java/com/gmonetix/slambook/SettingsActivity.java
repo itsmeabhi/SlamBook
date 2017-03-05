@@ -22,6 +22,7 @@ import com.gmonetix.slambook.helper.Const;
 import com.gmonetix.slambook.helper.Utils;
 import com.gmonetix.slambook.user_login.UserLoginActivity;
 import com.gmonetix.slambook.user_profile.EditProfile;
+import com.gmonetix.slambook.user_profile.UserHome;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -93,6 +94,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                                                 Toast.makeText(SettingsActivity.this,"Account deleted successfully !", Toast.LENGTH_LONG).show();
                                                 utils.setPassword(SettingsActivity.this,"");
                                                 utils.setUserName(SettingsActivity.this,"");
+                                                utils.setLoginStatus(SettingsActivity.this,false);
+                                                utils.setSlamsSent(SettingsActivity.this,0);
+                                                utils.setSlamsReceived(SettingsActivity.this,0);
                                                 Intent intent = new Intent(SettingsActivity.this, UserLoginActivity.class);
                                                 startActivity(intent);
                                                 finish();

@@ -1377,7 +1377,7 @@
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:id="@+id/etFavRoleModel1"
-                        android:text="My favourite celebrities... :"
+                        android:text="My Role model... :"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -1560,19 +1560,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <android.support.design.widget.FloatingActionButton
-        app:rippleColor="@color/white"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="16dp"
+    <include
+        android:id="@+id/fab_slam1"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/footer1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fabSize="normal"
-        android:src="@drawable/ic_home"
-        android:elevation="6dp"
-        android:id="@+id/btn_home"
-        app:pressedTranslationZ="12dp"/>
+        layout="@layout/fab_home" />
 
     <android.support.design.widget.FloatingActionButton
         app:rippleColor="@color/white"
@@ -1583,10 +1579,11 @@
         android:elevation="6dp"
         android:id="@+id/btn_send"
         app:pressedTranslationZ="12dp"
-        android:layout_marginBottom="8dp"
-        android:layout_above="@+id/btn_home"
-        android:layout_alignEnd="@+id/btn_home"
-        android:layout_alignRight="@+id/btn_home" />
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_above="@+id/fab_slam1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
 
 
 </RelativeLayout>

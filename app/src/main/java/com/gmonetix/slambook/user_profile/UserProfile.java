@@ -30,6 +30,8 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     private LinearLayout editProfile;
     private ImageView profileImage, genderImage;
     private ProgressBar progressBar;
+
+
     private Utils utils;
 
     private final static String INTENT_NAME = "name";

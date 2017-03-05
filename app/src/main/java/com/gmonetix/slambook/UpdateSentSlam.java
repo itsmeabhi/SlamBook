@@ -1,6 +1,7 @@
 package com.gmonetix.slambook;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -8,19 +9,40 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.gmonetix.slambook.helper.Const;
 import com.gmonetix.slambook.helper.Utils;
 import com.gmonetix.slambook.user_profile.UserHome;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 public class UpdateSentSlam extends AppCompatActivity implements View.OnClickListener {
 
+    private ImageView profilePic;
+    private ProgressBar progressBarProfilePic;
+    private TextView tvUsername, tvName;
     private Toolbar toolbar;
     private ProgressBar progressBar;
     private FloatingActionButton update, home;
@@ -42,10 +64,21 @@ public class UpdateSentSlam extends AppCompatActivity implements View.OnClickLis
             feel_powerful_when, biggest_achievement, my_teddy_knows, fb, address, phone_number, website, twitter, instagram, hpy_moment_wid_u,
             sad_moment_wid_u, good_things_about_u, bad_things_about_u, friendship_to_me_is, fav_color, fav_celebrities, fav_role_model, fav_tv_show,
             fav_music_band, fav_food, fav_sport;
+    private String NickName = "",Hobbies = "",OnFamousNameChange = "",Aim = "",LoveWearing = "",ZodiacSign = "",
+            HangoutPlace = "",TreatForBirthday = "",WeekendActivity = "",MemorableMoment = "",EmbarassingMoment = "",ThingsToDoBeforeDie = "",WhatBoresMe = "",
+            McrazyAbout = "",MyBiggestStrength = "",ThingsIHate = "",WhenMHappy = "",WhenMSad = "",WhenMMad = "",WorstHabit = "",BestThingAbtMe = "",FeelPowerfullWhen = "",
+            BiggestAchievement = "",MyTeddyKnows = "",Fb = "",Address = "",PhoneNumber = "",Website = "",Twitter = "",Instagram = "",HpyMomentWidU = "",SadMomentWidU = "",
+            GoodThingsAbtU = "",BadThingsAbtU = "",FriendshipToMe = "",FavColor = "",FavCelebrities = "",FavRoleModel = "",FavTvShow = "",FavMusicBand = "",FavFood = "",FavSport = "";
     private Utils utils;
 
     private String jsonData;
     private final static String INTENT_JSON_DATA = "json_data";
+    private final static String INTENT_USERNAME = "username";
+    private final static String INTENT_NAME = "name";
+    private final static String INTENT_IMAGE = "image";
+    private final static String INTENT_GENDER = "gender";
+    private final static String INTENT_SENT_ON = "sent_on";
+    private final static String INTENT_UPDATED_ON = "updated_on";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +89,40 @@ public class UpdateSentSlam extends AppCompatActivity implements View.OnClickLis
         UpdateSentSlam.this.setTitle("");
 
         init();
-        if (getIntent().hasExtra(INTENT_JSON_DATA))
+        if (getIntent().hasExtra(INTENT_JSON_DATA)) {
             jsonData = getIntent().getExtras().getString(INTENT_JSON_DATA);
+            username = getIntent().getExtras().getString(INTENT_USERNAME);
+            name = getIntent().getExtras().getString(INTENT_NAME);
+            image = getIntent().getExtras().getString(INTENT_IMAGE);
+            gender = getIntent().getExtras().getString(INTENT_GENDER);
+            sentOn = getIntent().getExtras().getString(INTENT_SENT_ON);
+            updatedOn = getIntent().getExtras().getString(INTENT_UPDATED_ON);
+        }
         new JsonParser().execute(jsonData);
+
+        tvUsername.setText(username);
+        tvName.setText(name);
+        ImageLoader.getInstance().displayImage(image, profilePic, new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String s, View view) {
+                progressBarProfilePic.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onLoadingFailed(String s, View view, FailReason failReason) {
+                profilePic.setImageResource(R.drawable.profile);
+                progressBarProfilePic.setVisibility(View.GONE);
+
+            }
+
+            @Override
+            public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+                progressBarProfilePic.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onLoadingCancelled(String s, View view) {}
+        });
 
         update.setOnClickListener(this);
         home.setOnClickListener(this);
@@ -72,6 +136,11 @@ public class UpdateSentSlam extends AppCompatActivity implements View.OnClickLis
         home = (FloatingActionButton) findViewById(R.id.btn_home);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_update_sent_slam);
         progressBar.setVisibility(View.VISIBLE);
+
+        progressBarProfilePic = (ProgressBar) findViewById(R.id.iv_profile_image_read_slam_progressBar);
+        profilePic = (ImageView) findViewById(R.id.iv_profile_image_read_slam_final);
+        tvUsername = (TextView) findViewById(R.id.tvFromUsername);
+        tvName = (TextView) findViewById(R.id.tvName);
 
         etNickName = (EditText) findViewById(R.id.etNickName);
         etHobbies = (EditText) findViewById(R.id.etHobbies);
@@ -252,11 +321,144 @@ public class UpdateSentSlam extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_update:
-                
-                
-                
-                
-                
+
+                NickName = etNickName.getText().toString().trim();
+                Hobbies = etHobbies.getText().toString().trim();
+                OnFamousNameChange = etOnFamousNameChange.getText().toString().trim();
+                Aim = etAim.getText().toString().trim();
+                LoveWearing = etLoveWearing.getText().toString().trim();
+                ZodiacSign = etZodiacSign.getText().toString().trim();
+                HangoutPlace = etHangoutPlace.getText().toString().trim();
+                TreatForBirthday = etTreatForBirthday.getText().toString().trim();
+                WeekendActivity = etWeekendActivity.getText().toString().trim();
+                MemorableMoment = etMemorableMoment.getText().toString().trim();
+                EmbarassingMoment = etEmbarassingMoment.getText().toString().trim();
+                ThingsToDoBeforeDie = etThingsToDoBeforeDie.getText().toString().trim();
+                WhatBoresMe = etWhatBoresMe.getText().toString().trim();
+                McrazyAbout = etMcrazyAbout.getText().toString().trim();
+                MyBiggestStrength = etMyBiggestStrength.getText().toString().trim();
+                ThingsIHate = etThingsIHate.getText().toString().trim();
+                WhenMHappy = etWhenMHappy.getText().toString().trim();
+                WhenMSad = etWhenMSad.getText().toString().trim();
+                WhenMMad = etWhenMMad.getText().toString().trim();
+                WorstHabit = etWorstHabit.getText().toString().trim();
+                BestThingAbtMe = etBestThingAbtMe.getText().toString().trim();
+                FeelPowerfullWhen = etFeelPowerfullWhen.getText().toString().trim();
+                BiggestAchievement = etBiggestAchievement.getText().toString().trim();
+                MyTeddyKnows = etMyTeddyKnows.getText().toString().trim();
+                Fb = etFb.getText().toString().trim();
+                Address = etAddress.getText().toString().trim();
+                PhoneNumber = etPhoneNumber.getText().toString().trim();
+                Website = etWebsite.getText().toString().trim();
+                Twitter = etTwitter.getText().toString().trim();
+                Instagram = etInstagram.getText().toString().trim();
+                HpyMomentWidU = etHpyMomentWidU.getText().toString().trim();
+                SadMomentWidU = etSadMomentWidU.getText().toString().trim();
+                GoodThingsAbtU = etGoodThingsAbtU.getText().toString().trim();
+                BadThingsAbtU = etBadThingsAbtU.getText().toString().trim();
+                FriendshipToMe = etFriendshipToMe.getText().toString().trim();
+                FavColor = etFavColor.getText().toString().trim();
+                FavCelebrities = etFavCelebrities.getText().toString().trim();
+                FavRoleModel = etFavRoleModel.getText().toString().trim();
+                FavTvShow = etFavTvShow.getText().toString().trim();
+                FavMusicBand = etFavMusicBand.getText().toString().trim();
+                FavFood = etFavFood.getText().toString().trim();
+                FavSport = etFavSport.getText().toString().trim();
+
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, Const.update_slam_sent,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String s) {
+                                try {
+                                    JSONArray jsonArray = new JSONArray(s);
+                                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                                    if (jsonObject.getString("code").equals("success_present")) {
+                                        Toast.makeText(UpdateSentSlam.this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+                                    } else if (jsonObject.getString("code").equals("unsuccess")) {
+                                        Toast.makeText(UpdateSentSlam.this,"Error occurred ! " +jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+                                        }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(UpdateSentSlam.this,"Error occurred ! ",Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        volleyError.printStackTrace();
+                        Toast.makeText(UpdateSentSlam.this,"Error occurred ! ",Toast.LENGTH_LONG).show();
+                    }
+                }){
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String,String> params = new HashMap<String, String>();
+
+                        params.put("to_user_name",username);
+                        params.put("from_user_name",utils.getUserName(UpdateSentSlam.this));
+                        params.put("updated_on", DateFormat.getDateTimeInstance().format(new Date()));
+
+                        params.put("name",name);
+                        params.put("nick_name",NickName);
+                  //      params.put("dob",Dob);
+                        params.put("hobbies",Hobbies);
+                        params.put("on_famous_name_change_to",OnFamousNameChange);
+                  //      params.put("mood",Mood);
+                        params.put("aim",Aim);
+                        params.put("love_wearing",LoveWearing);
+                        params.put("zodiac_sign",ZodiacSign);
+                        params.put("hangout_place",HangoutPlace);
+                        params.put("treat_for_birthday",TreatForBirthday);
+                        params.put("weekend_activity",WeekendActivity);
+                        params.put("memorable_moment",MemorableMoment);
+                        params.put("embarrassing_moment",EmbarassingMoment);
+                        params.put("things_want_to_do_before_die",ThingsToDoBeforeDie);
+                        params.put("what_bores_me_most",WhatBoresMe);
+                        params.put("m_crazy_about",McrazyAbout);
+                        params.put("my_biggest_strength",MyBiggestStrength);
+                        params.put("things_i_hate",ThingsIHate);
+                        params.put("when_m_happy",WhenMHappy);
+                        params.put("when_m_sad",WhenMMad);
+                        params.put("when_m_mad",WhenMMad);
+                        params.put("my_worst_habit",WorstHabit);
+                        params.put("best_thing_abt_me",BestThingAbtMe);
+                        params.put("feel_powerful_when",FeelPowerfullWhen);
+                        params.put("biggest_achievement",BiggestAchievement);
+                        params.put("my_teddy_knows",MyTeddyKnows);
+                        params.put("fb",Fb);
+                        params.put("address",Address);
+                        params.put("phone_number",PhoneNumber);
+                        params.put("website",Website);
+                        params.put("twitter",Twitter);
+                        params.put("instagram",Instagram);
+                        params.put("hpy_moment_wid_u",HpyMomentWidU);
+                        params.put("sad_moment_wid_u",SadMomentWidU);
+                        params.put("good_things_about_u",GoodThingsAbtU);
+                        params.put("bad_things_about_u",BadThingsAbtU);
+                        params.put("friendship_to_me_is",FriendshipToMe);
+                        params.put("fav_color",FavColor);
+                        params.put("fav_celebrities",FavCelebrities);
+                        params.put("fav_role_model",FavRoleModel);
+                        params.put("fav_tv_show",FavTvShow);
+                        params.put("fav_music_band",FavMusicBand);
+                        params.put("fav_food",FavFood);
+                        params.put("fav_sport",FavSport);
+
+                        return checkParams(params);
+                    }
+
+                    private Map<String, String> checkParams(Map<String, String> map){
+                        Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
+                        while (it.hasNext()) {
+                            Map.Entry<String, String> pairs = (Map.Entry<String, String>)it.next();
+                            if(pairs.getValue()==null){
+                                map.put(pairs.getKey(), "");
+                            }
+                        }
+                        return map;
+                    }
+                };
+                RequestQueue requestQueue = Volley.newRequestQueue(UpdateSentSlam.this);
+                requestQueue.add(stringRequest);
                 
                 break;
             

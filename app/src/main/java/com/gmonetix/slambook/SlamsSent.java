@@ -76,6 +76,18 @@ public class SlamsSent extends AppCompatActivity implements View.OnClickListener
         SlamsSent.this.setTitle("");
 
         init();
+        
+        home.setOnClickListener(this);
+        editSlam.setOnClickListener(this);
+
+        if (getIntent().hasExtra(INTENT_USERNAME)) {
+            username = getIntent().getExtras().getString(INTENT_USERNAME);
+            name = getIntent().getExtras().getString(INTENT_NAME);
+            image = getIntent().getExtras().getString(INTENT_IMAGE);
+            gender = getIntent().getExtras().getString(INTENT_GENDER);
+            sentOn = getIntent().getExtras().getString(INTENT_SENT_ON);
+            updatedOn = getIntent().getExtras().getString(INTENT_UPDATED_ON);
+        }
 
         ImageLoader.getInstance().displayImage(image, profilePic, new ImageLoadingListener() {
             @Override
@@ -99,18 +111,6 @@ public class SlamsSent extends AppCompatActivity implements View.OnClickListener
 
             }
         });
-        
-        home.setOnClickListener(this);
-        editSlam.setOnClickListener(this);
-
-        if (getIntent().hasExtra(INTENT_USERNAME)) {
-            username = getIntent().getExtras().getString(INTENT_USERNAME);
-            name = getIntent().getExtras().getString(INTENT_NAME);
-            image = getIntent().getExtras().getString(INTENT_IMAGE);
-            gender = getIntent().getExtras().getString(INTENT_GENDER);
-            sentOn = getIntent().getExtras().getString(INTENT_SENT_ON);
-            updatedOn = getIntent().getExtras().getString(INTENT_UPDATED_ON);
-        }
 
         StringRequest rqst = new StringRequest(Request.Method.POST, Const.slams_sent_detials,
                 new Response.Listener<String>() {
@@ -385,6 +385,12 @@ public class SlamsSent extends AppCompatActivity implements View.OnClickListener
                 if (success) {
                     Intent intent = new Intent(SlamsSent.this,UpdateSentSlam.class);
                     intent.putExtra(INTENT_JSON_DATA,jsonData);
+                    intent.putExtra(INTENT_USERNAME,username);
+                    intent.putExtra(INTENT_NAME,name);
+                    intent.putExtra(INTENT_IMAGE,image);
+                    intent.putExtra(INTENT_GENDER,gender);
+                    intent.putExtra(INTENT_SENT_ON,sentOn);
+                    intent.putExtra(INTENT_UPDATED_ON,updatedOn);
                     startActivity(intent);
                 }
                 break;

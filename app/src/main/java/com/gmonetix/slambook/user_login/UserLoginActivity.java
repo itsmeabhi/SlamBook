@@ -123,7 +123,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
                                             utils.setUserName(UserLoginActivity.this, username);
                                             utils.setPassword(UserLoginActivity.this, password);
                                             utils.setLoginStatus(UserLoginActivity.this,true);
-                                            Toast.makeText(UserLoginActivity.this,"Successfully logged in !",Toast.LENGTH_LONG).show();
+                                            Toast.makeText(UserLoginActivity.this,"Successfully logged in !",Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(UserLoginActivity.this, UserHome.class));
                                             finish();
                                         } else {

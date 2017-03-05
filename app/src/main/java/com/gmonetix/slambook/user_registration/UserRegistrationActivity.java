@@ -33,6 +33,11 @@ import com.gmonetix.slambook.R;
 import com.gmonetix.slambook.helper.Const;
 import com.gmonetix.slambook.helper.Utils;
 import com.gmonetix.slambook.user_login.UserLoginActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -242,13 +247,21 @@ public class UserRegistrationActivity extends AppCompatActivity implements View.
                     @Override
                     public void onResponse(String s) {
                         loading.dismiss();
-
-                        Toast.makeText(UserRegistrationActivity.this,"Registration successfull ! Login with your credentials",Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(UserRegistrationActivity.this, UserLoginActivity.class);
-                        intent.putExtra(INTENT_USERNAME,username);
-                        intent.putExtra(INTENT_PASSWORD,password);
-                        startActivity(intent);
-                        finish();
+                        try {
+                            JSONArray jsonArray = new JSONArray(s);
+                            JSONObject jsonObject = jsonArray.getJSONObject(0);
+                            if (jsonObject.getString("code").equals("success")) {
+                                Toast.makeText(UserRegistrationActivity.this,"Registration successfull ! Login with your credentials",Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(UserRegistrationActivity.this, UserLoginActivity.class);
+                                intent.putExtra(INTENT_USERNAME,username);
+                                intent.putExtra(INTENT_PASSWORD,password);
+                                startActivity(intent);
+                                finish();
+                            } else Toast.makeText(UserRegistrationActivity.this, "Some error occurred ! Try again later", Toast.LENGTH_LONG).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(UserRegistrationActivity.this, "Some error occurred ! Try again later", Toast.LENGTH_LONG).show();
+                        }
                     }
                 },
                 new Response.ErrorListener() {

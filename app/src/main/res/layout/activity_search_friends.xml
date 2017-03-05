@@ -88,6 +88,7 @@
         android:layout_height="wrap_content" />
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_marginBottom="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
@@ -103,5 +104,14 @@
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/fab_slam1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView2"
+        layout="@layout/fab_home" />
 
 </RelativeLayout>

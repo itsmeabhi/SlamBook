@@ -26,6 +26,8 @@ public class Const {
 
     public static final String slams_sent_detials = "http://192.168.215.2/test/slamsSentDetials.php";
 
+    public static final String update_slam_sent = "http://192.168.215.2/test/updateSlam.php";
+
     public static final String PHP_CODE = "code";
     
     //User Data fields ----------->>>>>>>>>>>>>

@@ -309,6 +309,7 @@ public class WriteSlam extends AppCompatActivity implements View.OnClickListener
                                     if (code.equals("success")) {
                                         Toast.makeText(WriteSlam.this,object.getString("message"),Toast.LENGTH_LONG).show();
                                         startActivity(new Intent(WriteSlam.this, UserHome.class));
+                                        finish();
                                     } else if (code.equals("unsuccess_already_present")){
                                         Toast.makeText(WriteSlam.this,object.getString("message"),Toast.LENGTH_LONG).show();
                                     } else if (code.equals("unsuccess_not_sent")){
@@ -333,6 +334,7 @@ public class WriteSlam extends AppCompatActivity implements View.OnClickListener
                         params.put("to_user_name",toUserName);
                         params.put("from_user_name",utils.getUserName(WriteSlam.this));
                         params.put("sent_on",DateFormat.getDateTimeInstance().format(new Date()));
+                        params.put("updated_on","Not updated yet !");
 
                         params.put("name",Name);
                         params.put("nick_name",NickName);

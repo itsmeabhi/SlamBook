@@ -41,4 +41,14 @@
         android:layout_centerVertical="true"
         android:id="@+id/read_slam_progrss_bar" />
 
+    <include
+        android:id="@+id/fab_slam1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        layout="@layout/fab_home" />
+
 </RelativeLayout>

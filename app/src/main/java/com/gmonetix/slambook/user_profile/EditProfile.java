@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
@@ -50,6 +51,7 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
     private RadioGroup radioGroup;
     private RadioButton radioMale, radioFemale;
     private ImageView profilePic;
+    private FloatingActionButton home;
 
     private Utils utils;
     private Bitmap bitmap;
@@ -123,6 +125,7 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
         llDob.setOnClickListener(this);
         llSave.setOnClickListener(this);
         profilePic.setOnClickListener(this);
+        home.setOnClickListener(this);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -171,6 +174,8 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
         radioFemale = (RadioButton) findViewById(R.id.edit_profile_femaleRadioBtn);
 
         profilePic = (ImageView) findViewById(R.id.iv_edit_profile_image);
+
+        home = (FloatingActionButton) findViewById(R.id.btn_home);
 
         utils = new Utils();
         utils.setFont(EditProfile.this,tv01);
@@ -233,6 +238,11 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
 
             case R.id.iv_edit_profile_image:
                 utils.showFileChooser(EditProfile.this,PICK_IMAGE_REQUEST);
+                break;
+
+            case R.id.btn_home:
+                startActivity(new Intent(EditProfile.this,UserHome.class));
+                finish();
                 break;
 
         }
@@ -303,4 +313,9 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
         return encodedImage;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

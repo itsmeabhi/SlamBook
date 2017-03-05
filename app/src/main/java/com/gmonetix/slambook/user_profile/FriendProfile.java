@@ -3,6 +3,7 @@ package com.gmonetix.slambook.user_profile;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 public class FriendProfile extends AppCompatActivity implements View.OnClickListener {
 
+    private FloatingActionButton home;
     private Toolbar toolbar;
     private ImageView profileImage, genderImage;
     private TextView tvname, tvemail, tvdescription,tvusername,tvdob, tv01;
@@ -58,6 +60,7 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
         gender = getIntent().getExtras().getString(GENDER_INTENT);
 
         llWriteSlam.setOnClickListener(this);
+        home.setOnClickListener(this);
 
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
                 .cacheInMemory(false)
@@ -118,7 +121,7 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
         tv01 = (TextView) findViewById(R.id.tv_friend_profile_write_slam);
 
         llWriteSlam = (LinearLayout) findViewById(R.id.ll_friend_profile_write_slam);
-
+        home = (FloatingActionButton) findViewById(R.id.btn_home);
         progressBar = (ProgressBar) findViewById(R.id.friend_profile_progress_bar);
 
         utils = new Utils();
@@ -138,6 +141,17 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
                 intent.putExtra(USERNAME_INTENT1,username);
                 startActivity(intent);
                 break;
+
+            case R.id.btn_home:
+                startActivity(new Intent(FriendProfile.this,UserHome.class));
+                finish();
+                break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

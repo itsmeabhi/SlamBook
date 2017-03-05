@@ -47,7 +47,7 @@
 
             <ImageView
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_date"
+                android:src="@drawable/ic_write"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
@@ -73,7 +73,7 @@
 
             <ImageView
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_date"
+                android:src="@drawable/ic_delete"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
@@ -95,5 +95,15 @@
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/fab_slam1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="120dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/fab_home" />
 
 </RelativeLayout>

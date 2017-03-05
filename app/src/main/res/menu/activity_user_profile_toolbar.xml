@@ -19,6 +19,11 @@
             android:id="@+id/toolbar_user_profile_youtube"
             app:showAsAction="never"
             android:title="Youtube Channel" />
+
+        <item
+            android:id="@+id/toolbar_user_profile_exit"
+            app:showAsAction="never"
+            android:title="Exit" />
     </group>
 
 </menu>

@@ -25,6 +25,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import android.provider.Settings;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -55,7 +56,9 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
     private ListView toListView, fromListView;
 
     private List<HomeModel> fromData;
-    private HomeAdapter adapter;
+    private List<HomeModel> toData;
+    private HomeAdapter adapter1;
+    private HomeAdapter adapter2;
 
     private Utils utils;
 
@@ -68,6 +71,7 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
         UserHome.this.setTitle("");
         init();
         fromData = new ArrayList<>();
+        toData = new ArrayList<>();
 
         StringRequest stringRequestReceived = new StringRequest(Request.Method.POST, Const.get_image_using_username,
                 new Response.Listener<String>() {
@@ -81,15 +85,14 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                                 model.setImage(jsonObject.getString(Const.USER_ACCOUNT_DATA_IMAGE));
                                 model.setFromUserName(jsonObject.getString(Const.USER_ACCOUNT_DATA_USER_NAME));
                                 fromData.add(model);
-                                utils.setSlamsReceived(UserHome.this,i);
+                                utils.setSlamsReceived(UserHome.this,(i+1));
                                 tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
                             }
+                            adapter1 = new HomeAdapter(UserHome.this,fromData);
+                            fromListView.setAdapter(adapter1);
                         } catch (JSONException e) {
                             e.printStackTrace();
                             tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
-                        } finally {
-                            adapter = new HomeAdapter(UserHome.this,fromData);
-                            fromListView.setAdapter(adapter);
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -107,7 +110,7 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
             }
         };
 
-        /*StringRequest stringRequestSent = new StringRequest(Request.Method.POST, Const.slams_sent,
+        StringRequest stringRequestSent = new StringRequest(Request.Method.POST, Const.slams_sent,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s2) {
@@ -117,24 +120,23 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 HomeModel model = new HomeModel();
                                 model.setImage(jsonObject.getString(Const.USER_ACCOUNT_DATA_IMAGE));
-                                model.setFromUserName(jsonObject.getString(Const.USER_ACCOUNT_DATA_USER_NAME));
-                                fromData.add(model);
-                                utils.setSlamsReceived(UserHome.this,i);
-                                tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
+                                model.setFromUserName(jsonObject.getString("to_user_name"));
+                                toData.add(model);
+                                utils.setSlamsSent(UserHome.this,(i+1));
+                                tvNumberOfSlamsSent.setText("Slams sent : "+ String.valueOf(utils.getSlamsSent(UserHome.this)));
                             }
+                            adapter2 = new HomeAdapter(UserHome.this,toData);
+                            toListView.setAdapter(adapter2);
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
-                        } finally {
-                            adapter = new HomeAdapter(UserHome.this,fromData);
-                            fromListView.setAdapter(adapter);
+                            tvNumberOfSlamsSent.setText("Slams sent : "+ String.valueOf(utils.getSlamsSent(UserHome.this)));
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 volleyError.printStackTrace();
-                tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
+                tvNumberOfSlamsSent.setText("Slams sent : "+ String.valueOf(utils.getSlamsSent(UserHome.this)));
             }
         }){
             @Override
@@ -143,12 +145,12 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                 params.put(Const.USER_ACCOUNT_DATA_USER_NAME,utils.getUserName(UserHome.this));
                 return params;
             }
-        };*/
+        };
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(UserHome.this);
         requestQueue.add(stringRequestReceived);
-      //  requestQueue.add(stringRequestSent);
+        requestQueue.add(stringRequestSent);
 
     }
 
@@ -216,6 +218,9 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.toolbar_user_profile_youtube:
                 startActivity(Utils.openYoutube(UserHome.this));
                 break;
+            case R.id.toolbar_user_profile_exit:
+                finishAffinity();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -243,8 +248,14 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case R.id.nav_user_profile_logout:
                 utils.setLoginStatus(UserHome.this,false);
-                startActivity(new Intent(UserHome.this,UserLoginActivity.class));
-                finish();
+                utils.setSlamsSent(UserHome.this,0);
+                utils.setSlamsReceived(UserHome.this,0);
+                Intent intent = new Intent(UserHome.this,UserLoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+            case R.id.nav_user_profile_exit:
+                finishAffinity();
                 break;
 
             case R.id.nav_user_profile_help:
