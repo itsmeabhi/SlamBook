@@ -500,7 +500,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/fb"
+                        android:src="@drawable/angry"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
 
@@ -535,7 +535,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/fb"
+                        android:src="@drawable/crazy"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
 
@@ -570,7 +570,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/fb"
+                        android:src="@drawable/feel_strong"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
 
@@ -605,7 +605,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/fb"
+                        android:src="@drawable/angry"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
 
@@ -711,7 +711,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/fb"
+                        android:src="@drawable/crazy"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
 
@@ -746,7 +746,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/fb"
+                        android:src="@drawable/angry"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
 
@@ -781,7 +781,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/fb"
+                        android:src="@drawable/cool"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
 
@@ -816,7 +816,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/fb"
+                        android:src="@drawable/feel_strong"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
 
@@ -886,7 +886,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/fb"
+                        android:src="@drawable/teddy"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
 
@@ -1133,7 +1133,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/favrte_color"
+                        android:src="@drawable/happy"
                         android:scaleType="fitXY"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
@@ -1169,7 +1169,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/favrte_color"
+                        android:src="@drawable/sad"
                         android:scaleType="fitXY"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
@@ -1205,7 +1205,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/favrte_color"
+                        android:src="@drawable/good"
                         android:scaleType="fitXY"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
@@ -1241,7 +1241,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/favrte_color"
+                        android:src="@drawable/bad1"
                         android:scaleType="fitXY"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />
@@ -1277,7 +1277,7 @@
                         android:layout_height="wrap_content" />
 
                     <ImageView
-                        android:src="@drawable/favrte_color"
+                        android:src="@drawable/frends"
                         android:scaleType="fitXY"
                         android:layout_width="40dp"
                         android:layout_height="40dp" />

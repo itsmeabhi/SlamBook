@@ -195,7 +195,7 @@
 
         <LinearLayout
             android:id="@+id/ll_register"
-            android:background="@color/bg_login"
+            android:background="@drawable/button_xml"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
@@ -37,6 +38,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
     private LinearLayout signIn;
     private TextView signUp, tv1, tv2, sampleTextLogin, tv_login;
     private Toolbar toolbar;
+    private ProgressBar progressBar;
 
     private Utils utils;
     private String username, password;
@@ -87,6 +89,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
         tv1 = (TextView) findViewById(R.id.tv1);
         tv2 = (TextView) findViewById(R.id.tv2);
         tv_login = (TextView) findViewById(R.id.tv_login);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar_login_activity);
 
         utils = new Utils();
         utils.setFont(UserLoginActivity.this,tv1);
@@ -110,6 +113,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
                 } else if (username.equals("") || password.equals("")) {
                     Toast.makeText(UserLoginActivity.this,"Enter Username and Password !",Toast.LENGTH_SHORT).show();
                 } else {
+                    progressBar.setVisibility(View.VISIBLE);
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, Const.login_url,
                             new Response.Listener<String>() {
                                 @Override
@@ -119,6 +123,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
                                         JSONObject jsonObject = jsonArray.getJSONObject(0);
                                         String code = jsonObject.getString("code");
                                         if (code.equals("login_success")) {
+                                            progressBar.setVisibility(View.GONE);
                                             utils.storeUserData(data,username,UserLoginActivity.this);
                                             utils.setUserName(UserLoginActivity.this, username);
                                             utils.setPassword(UserLoginActivity.this, password);
@@ -127,10 +132,12 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
                                             startActivity(new Intent(UserLoginActivity.this, UserHome.class));
                                             finish();
                                         } else {
+                                            progressBar.setVisibility(View.GONE);
                                             Toast.makeText(UserLoginActivity.this,"Login Error ! User not found !",Toast.LENGTH_LONG).show();
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
+                                        progressBar.setVisibility(View.GONE);
                                         Toast.makeText(UserLoginActivity.this,"Login Error !",Toast.LENGTH_LONG).show();
                                     }
                                 }
@@ -139,6 +146,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
                                 @Override
                                 public void onErrorResponse(VolleyError volleyError) {
                                     volleyError.printStackTrace();
+                                    progressBar.setVisibility(View.GONE);
                                     Toast.makeText(UserLoginActivity.this, "Some error occurred ! Try again later !", Toast.LENGTH_LONG).show();
                                 }
                             }){

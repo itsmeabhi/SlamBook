@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file:///media/gmonetix/Coding/slambook/salmbook/app/app.iml" filepath="/media/gmonetix/Coding/slambook/salmbook/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/salmbook.iml" filepath="$PROJECT_DIR$/salmbook.iml" />
-      <module fileurl="file:///media/gmonetix/Coding/slambook/salmbook/salmbook.iml" filepath="/media/gmonetix/Coding/slambook/salmbook/salmbook.iml" />
     </modules>
   </component>
 </project>

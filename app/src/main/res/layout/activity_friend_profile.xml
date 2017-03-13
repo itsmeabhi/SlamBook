@@ -139,7 +139,7 @@
 
             <LinearLayout
                 android:id="@+id/ll_friend_profile_write_slam"
-                android:background="@color/bg_login"
+                android:background="@drawable/button_xml"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
 

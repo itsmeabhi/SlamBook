@@ -9,4 +9,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="title_activity_edit_profile">Edit</string>
+
+    <string name="permission">Allow the following permissions to run the app smoothly</string>
 </resources>

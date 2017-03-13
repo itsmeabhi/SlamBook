@@ -29,7 +29,7 @@
             android:title="Logout" />
         <item
             android:id="@+id/nav_user_profile_exit"
-            android:icon="@drawable/ic_warning"
+            android:icon="@drawable/ic_error"
             android:title="Exit" />
     </group>
 

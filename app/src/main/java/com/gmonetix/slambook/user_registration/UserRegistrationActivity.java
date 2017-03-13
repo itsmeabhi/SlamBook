@@ -257,6 +257,8 @@ public class UserRegistrationActivity extends AppCompatActivity implements View.
                                 intent.putExtra(INTENT_PASSWORD,password);
                                 startActivity(intent);
                                 finish();
+                            } else if(jsonObject.getString("code").equals("registraion_unsuccessfull")) {
+                                Toast.makeText(UserRegistrationActivity.this,jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                             } else Toast.makeText(UserRegistrationActivity.this, "Some error occurred ! Try again later", Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -78,13 +78,23 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
         EditProfile.this.setTitle("Edit Profile");
 
         init();
-        name = getIntent().getExtras().getString(INTENT_NAME);
-        email = getIntent().getExtras().getString(INTENT_EMAIL);
-        phoneNumber = getIntent().getExtras().getString(INTENT_PHONENUMBER);
-        dob = getIntent().getExtras().getString(INTENT_DOB);
-        gender = getIntent().getExtras().getString(INTENT_GENDER);
-        description = getIntent().getExtras().getString(INTENT_DESCRIPTION);
-        image = getIntent().getExtras().getString(INTENT_IMAGE);
+        if (getIntent().hasExtra(INTENT_NAME)) {
+            name = getIntent().getExtras().getString(INTENT_NAME);
+            email = getIntent().getExtras().getString(INTENT_EMAIL);
+            phoneNumber = getIntent().getExtras().getString(INTENT_PHONENUMBER);
+            dob = getIntent().getExtras().getString(INTENT_DOB);
+            gender = getIntent().getExtras().getString(INTENT_GENDER);
+            description = getIntent().getExtras().getString(INTENT_DESCRIPTION);
+            image = getIntent().getExtras().getString(INTENT_IMAGE);
+        } else {
+            name = "";
+            email = "";
+            phoneNumber = "";
+            dob = "";
+            gender = "";
+            description = "";
+            image = "";
+        }
 
         etName.setText(name);
         etEmail.setText(email);
@@ -98,10 +108,10 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
         day_x = Integer.parseInt(date[0]);
         month_x = Integer.parseInt(date[1]);
         year_x = Integer.parseInt(date[2]);
+
         ImageLoader.getInstance().displayImage(image, profilePic, new ImageLoadingListener() {
             @Override
-            public void onLoadingStarted(String s, View view) {
-            }
+            public void onLoadingStarted(String s, View view) {}
 
             @Override
             public void onLoadingFailed(String s, View view, FailReason failReason) {
@@ -109,14 +119,14 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
             }
 
             @Override
-            public void onLoadingComplete(String s, View view, Bitmap bitmap) {
-            }
+            public void onLoadingComplete(String s, View view, Bitmap bitmap) {}
 
             @Override
             public void onLoadingCancelled(String s, View view) {
 
             }
         });
+
         if (image.equals(""))
         {
             profilePic.setImageDrawable(getResources().getDrawable(R.drawable.profile));

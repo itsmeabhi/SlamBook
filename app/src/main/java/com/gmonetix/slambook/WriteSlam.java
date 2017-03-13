@@ -14,6 +14,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -334,7 +335,6 @@ public class WriteSlam extends AppCompatActivity implements View.OnClickListener
                         params.put("to_user_name",toUserName);
                         params.put("from_user_name",utils.getUserName(WriteSlam.this));
                         params.put("sent_on",DateFormat.getDateTimeInstance().format(new Date()));
-                        params.put("updated_on","Not updated yet !");
 
                         params.put("name",Name);
                         params.put("nick_name",NickName);
@@ -397,6 +397,22 @@ public class WriteSlam extends AppCompatActivity implements View.OnClickListener
                     }
                 };
                 queue.add(stringrqst);
+                stringrqst.setRetryPolicy(new RetryPolicy() {
+                    @Override
+                    public int getCurrentTimeout() {
+                        return 50000;
+                    }
+
+                    @Override
+                    public int getCurrentRetryCount() {
+                        return 50000;
+                    }
+
+                    @Override
+                    public void retry(VolleyError error) throws VolleyError {
+
+                    }
+                });
                 break;
 
             case R.id.btn_home:

@@ -36,6 +36,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,8 +53,9 @@ import java.util.Map;
 public class UserHome extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
-    private TextView tvNumberOfSlamsSent, tvNumberOfSlamsReceived,tv1,tv2;
+    private TextView tvNumberOfSlamsSent, tvNumberOfSlamsReceived,tv1,tv2,tv11,tv12,tv13,tv14,tv15,tv16;
     private ListView toListView, fromListView;
+    private LinearLayout llSent, llReceived;
 
     private List<HomeModel> fromData;
     private List<HomeModel> toData;
@@ -93,6 +95,12 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                         } catch (JSONException e) {
                             e.printStackTrace();
                             tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
+                        } finally {
+                            if (utils.getSlamsReceived(UserHome.this)==0) {
+                                llReceived.setVisibility(View.VISIBLE);
+                            } else if(utils.getSlamsReceived(UserHome.this)>0){
+                                llReceived.setVisibility(View.GONE);
+                            }
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -100,6 +108,11 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
             public void onErrorResponse(VolleyError volleyError) {
                 volleyError.printStackTrace();
                 tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
+                if (utils.getSlamsReceived(UserHome.this)==0) {
+                    llReceived.setVisibility(View.VISIBLE);
+                } else if(utils.getSlamsReceived(UserHome.this)>0){
+                    llReceived.setVisibility(View.GONE);
+                }
             }
         }){
             @Override
@@ -130,6 +143,12 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                         } catch (JSONException e) {
                             e.printStackTrace();
                             tvNumberOfSlamsSent.setText("Slams sent : "+ String.valueOf(utils.getSlamsSent(UserHome.this)));
+                        } finally {
+                            if (utils.getSlamsSent(UserHome.this)==0) {
+                                llSent.setVisibility(View.VISIBLE);
+                            } else if(utils.getSlamsSent(UserHome.this)>0){
+                                llSent.setVisibility(View.GONE);
+                            }
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -137,6 +156,11 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
             public void onErrorResponse(VolleyError volleyError) {
                 volleyError.printStackTrace();
                 tvNumberOfSlamsSent.setText("Slams sent : "+ String.valueOf(utils.getSlamsSent(UserHome.this)));
+                if (utils.getSlamsSent(UserHome.this)==0) {
+                    llSent.setVisibility(View.VISIBLE);
+                } else if(utils.getSlamsSent(UserHome.this)>0){
+                    llSent.setVisibility(View.GONE);
+                }
             }
         }){
             @Override
@@ -171,11 +195,30 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
         toListView = (ListView) findViewById(R.id.user_home_to_list_view);
         fromListView = (ListView) findViewById(R.id.user_home_from_list_view);
 
+        llSent = (LinearLayout) findViewById(R.id.ll_no_sent_data);
+        llReceived = (LinearLayout) findViewById(R.id.ll_no_received_data);
+
+        llSent.setVisibility(View.GONE);
+        llReceived.setVisibility(View.GONE);
+
+        tv11 = (TextView) findViewById(R.id.user_home_tv1);
+        tv12 = (TextView) findViewById(R.id.user_home_tv2);
+        tv13 = (TextView) findViewById(R.id.user_home_tv3);
+        tv14 = (TextView) findViewById(R.id.user_home_tv4);
+        tv15 = (TextView) findViewById(R.id.user_home_tv5);
+        tv16 = (TextView) findViewById(R.id.user_home_tv6);
+
         utils = new Utils();
         utils.setFont(UserHome.this,tvNumberOfSlamsReceived);
         utils.setFont(UserHome.this,tvNumberOfSlamsSent);
         utils.setFont(UserHome.this,tv1);
         utils.setFont(UserHome.this,tv2);
+        utils.setFont(UserHome.this,tv11);
+        utils.setFont(UserHome.this,tv12);
+        utils.setFont(UserHome.this,tv13);
+        utils.setFont(UserHome.this,tv14);
+        utils.setFont(UserHome.this,tv15);
+        utils.setFont(UserHome.this,tv16);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
