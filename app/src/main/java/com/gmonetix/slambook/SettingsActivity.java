@@ -2,6 +2,7 @@ package com.gmonetix.slambook;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,8 +35,9 @@ import java.util.Map;
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar toolbar;
-    private TextView tv_settings_change_password, tv_settings_delete_account;
+    private TextView tv_settings_change_password, tv_settings_delete_account,tv_settings_slambook,tv_settings_version;
     private LinearLayout llChangePassword, llDeleteAccount;
+    private FloatingActionButton home;
 
     private Utils utils;
 
@@ -51,18 +53,25 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
         llChangePassword.setOnClickListener(this);
         llDeleteAccount.setOnClickListener(this);
+        home.setOnClickListener(this);
 
     }
 
     private void init() {
         tv_settings_change_password = (TextView) findViewById(R.id.tv_settings_change_password);
         tv_settings_delete_account = (TextView) findViewById(R.id.tv_settings_delete_account);
+        tv_settings_slambook = (TextView) findViewById(R.id.tv_settings_slambook);
+        tv_settings_version = (TextView) findViewById(R.id.tv_settings_version);
         llChangePassword = (LinearLayout) findViewById(R.id.ll_settings_change_password);
         llDeleteAccount = (LinearLayout) findViewById(R.id.ll_settings_delete_account);
+
+        home = (FloatingActionButton) findViewById(R.id.btn_home);
 
         utils = new Utils();
         utils.setFont(SettingsActivity.this,tv_settings_change_password);
         utils.setFont(SettingsActivity.this,tv_settings_delete_account);
+        utils.setFont(SettingsActivity.this,tv_settings_slambook);
+        utils.setFont(SettingsActivity.this,tv_settings_version);
     }
 
     @Override
@@ -71,6 +80,12 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.ll_settings_change_password:
                 startActivity(new Intent(SettingsActivity.this,PasswordChangeActivity.class));
+                break;
+
+            case R.id.btn_home:
+                Intent intent = new Intent(SettingsActivity.this,UserHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
 
             case R.id.ll_settings_delete_account:

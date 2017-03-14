@@ -1,11 +1,13 @@
 package com.gmonetix.slambook;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import com.gmonetix.slambook.helper.Const;
 import com.gmonetix.slambook.helper.SentSlamAdapter;
 import com.gmonetix.slambook.helper.SentSlamModel;
 import com.gmonetix.slambook.helper.Utils;
+import com.gmonetix.slambook.user_profile.UserHome;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -38,10 +41,13 @@ public class SentSlamsActivty extends AppCompatActivity implements AdapterView.O
 
     private Toolbar toolbar;
     private ListView listView;
-
+    private FloatingActionButton home;
     private Utils utils;
     private List<SentSlamModel> sentSlams;
     private SentSlamAdapter adapter;
+
+    private LinearLayout ll;
+    private TextView tv1, tv2, tv3;
 
     private final static String INTENT_USERNAME = "username";
     private final static String INTENT_NAME = "name";
@@ -62,6 +68,15 @@ public class SentSlamsActivty extends AppCompatActivity implements AdapterView.O
         sentSlams = new ArrayList<>();
         listView.setOnItemClickListener(this);
 
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SentSlamsActivty.this,UserHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
         StringRequest rqst = new StringRequest(Request.Method.POST, Const.slams_sent,
                 new Response.Listener<String>() {
                     @Override
@@ -79,13 +94,12 @@ public class SentSlamsActivty extends AppCompatActivity implements AdapterView.O
                                     model.setSentOn(jsonObject.getString("sent_on"));
                                     model.setUpdatedOn(jsonObject.getString("updated_on"));
                                     sentSlams.add(model);
+                                    ll.setVisibility(View.GONE);
+                                    adapter = new SentSlamAdapter(SentSlamsActivty.this,sentSlams);
+                                    listView.setAdapter(adapter);
                                 } else if (jsonObject.getString("code").equals("failed")){
                                     Toast.makeText(SentSlamsActivty.this,"Error occurred ! Please try again later !",Toast.LENGTH_SHORT).show();
                                 }
-                                adapter = new SentSlamAdapter(SentSlamsActivty.this,sentSlams);
-                                listView.setAdapter(adapter);
-                                TextView textView = (TextView) findViewById(R.id.sent_slams_tv_show);
-                                textView.setVisibility(View.GONE);
                             }
 
                         } catch (JSONException e) {
@@ -117,8 +131,18 @@ public class SentSlamsActivty extends AppCompatActivity implements AdapterView.O
     private void init() {
 
         listView = (ListView) findViewById(R.id.sent_slams_list_view);
+        ll = (LinearLayout) findViewById(R.id.sent_slams_tv_show);
+        tv1 = (TextView) findViewById(R.id.sent_slams_tv1);
+        tv2 = (TextView) findViewById(R.id.sent_slams_tv2);
+        tv3 = (TextView) findViewById(R.id.sent_slams_tv3);
+
+        home = (FloatingActionButton) findViewById(R.id.btn_home);
 
         utils = new Utils();
+
+        utils.setFont(SentSlamsActivty.this,tv1);
+        utils.setFont(SentSlamsActivty.this,tv2);
+        utils.setFont(SentSlamsActivty.this,tv3);
 
         utils.getUilInstance(SentSlamsActivty.this);
     }

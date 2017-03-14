@@ -43,9 +43,7 @@ public class SlamsSent extends AppCompatActivity implements View.OnClickListener
             tvHangoutPlace,tvTreatForBirthday,tvWeekendActivity,tvMemorableMoment,tvEmbarassingMoment,tvThingsToDoBeforeDie,tvWhatBoresMe,
             tvMcrazyAbout,tvMyBiggestStrength,tvThingsIHate,tvWhenMHappy,tvWhenMSad,tvWhenMMad,tvWorstHabit,tvBestThingAbtMe,tvFeelPowerfullWhen,
             tvBiggestAchievement,tvMyTeddyKnows,tvFb,tvAddress,tvPhoneNumber,tvWebsite,tvTwitter,tvInstagram,tvHpyMomentWidU,tvSadMomentWidU,
-            tvGoodThingsAbtU,tvBadThingsAbtU,tvFriendshipToMe,tvFavColor,tvFavCelebrities,tvFavRoleModel,tvFavTvShow,tvFavMusicBand,tvFavFood,tvFavSport,
-
-    tvWhenMHappy1,tvWhenMSad1,tvFb1,tvAddress1,tvPhoneNumber1,tvWebsite1,tvTwitter1,tvInstagram1,tvFavColor1,tvFavCelebrities1,tvFavRoleModel1,tvFavTvShow1,tvFavMusicBand1,tvFavFood1,tvFavSport1;
+            tvGoodThingsAbtU,tvBadThingsAbtU,tvFriendshipToMe,tvFavColor,tvFavCelebrities,tvFavRoleModel,tvFavTvShow,tvFavMusicBand,tvFavFood,tvFavSport;
 
     private final static String INTENT_USERNAME = "username";
     private final static String INTENT_NAME = "name";
@@ -297,38 +295,6 @@ public class SlamsSent extends AppCompatActivity implements View.OnClickListener
         tvFavFood = (TextView) findViewById(R.id.tvFavFood);
         tvFavSport = (TextView) findViewById(R.id.tvFavSport);
 
-        tvWhenMHappy1 = (TextView) findViewById(R.id.tvWhenMHappy1);
-        tvWhenMSad1 = (TextView) findViewById(R.id.tvWhenMSad1);
-        tvFb1 = (TextView) findViewById(R.id.tvFb1);
-        tvAddress1 = (TextView) findViewById(R.id.tvAddress1);
-        tvPhoneNumber1 = (TextView) findViewById(R.id.tvPhoneNumber1);
-        tvWebsite1 = (TextView) findViewById(R.id.tvWebsite1);
-        tvTwitter1 = (TextView) findViewById(R.id.tvTwitter1);
-        tvInstagram1 = (TextView) findViewById(R.id.tvInstagram1);
-        tvFavColor1 = (TextView) findViewById(R.id.tvFavColor1);
-        tvFavCelebrities1 = (TextView) findViewById(R.id.tvFavCelebrities1);
-        tvFavRoleModel1 = (TextView) findViewById(R.id.tvFavRoleModel1);
-        tvFavTvShow1 = (TextView) findViewById(R.id.tvFavTvShow1);
-        tvFavMusicBand1 = (TextView) findViewById(R.id.tvFavMusicBand1);
-        tvFavFood1 = (TextView) findViewById(R.id.tvFavFood1);
-        tvFavSport1 = (TextView) findViewById(R.id.tvFavSport1);
-
-        utils.setFont(SlamsSent.this,tvWhenMHappy1);
-        utils.setFont(SlamsSent.this,tvWhenMSad1);
-        utils.setFont(SlamsSent.this,tvFb1);
-        utils.setFont(SlamsSent.this,tvAddress1);
-        utils.setFont(SlamsSent.this,tvPhoneNumber1);
-        utils.setFont(SlamsSent.this,tvWebsite1);
-        utils.setFont(SlamsSent.this,tvTwitter1);
-        utils.setFont(SlamsSent.this,tvInstagram1);
-        utils.setFont(SlamsSent.this,tvFavColor1);
-        utils.setFont(SlamsSent.this,tvFavCelebrities1);
-        utils.setFont(SlamsSent.this,tvFavRoleModel1);
-        utils.setFont(SlamsSent.this,tvFavTvShow1);
-        utils.setFont(SlamsSent.this,tvFavMusicBand1);
-        utils.setFont(SlamsSent.this,tvFavFood1);
-        utils.setFont(SlamsSent.this,tvFavSport1);
-
         utils.setFont(SlamsSent.this,tvFromUsername);
         utils.setFont(SlamsSent.this,tvName);
         utils.setFont(SlamsSent.this,tvNickName);
@@ -396,8 +362,9 @@ public class SlamsSent extends AppCompatActivity implements View.OnClickListener
                 break;
             
             case R.id.btn_home:
-                startActivity(new Intent(SlamsSent.this, UserHome.class));
-                finish();
+                Intent intent = new Intent(SlamsSent.this,UserHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }

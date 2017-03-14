@@ -416,6 +416,9 @@ public class WriteSlam extends AppCompatActivity implements View.OnClickListener
                 break;
 
             case R.id.btn_home:
+                Intent intent = new Intent(WriteSlam.this,UserHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }

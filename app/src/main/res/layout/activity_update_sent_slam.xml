@@ -42,19 +42,19 @@
                 android:layout_height="wrap_content">
 
                 <TextView android:padding="8dp"
-                    android:id="@+id/tvName"
-                    android:text="Name:"
+                    android:id="@+id/tvFromUsername"
+                    android:text="UserName:"
                     android:layout_weight="1"
+                    android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <TextView android:padding="8dp"
-                    android:id="@+id/tvFromUsername"
-                    android:text="UserName:"
+                    android:id="@+id/tvName"
+                    android:text="Name:"
                     android:layout_weight="1"
-                    android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
@@ -110,13 +110,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
                     <TextView
                         android:gravity="center"
                         android:layout_gravity="center"
@@ -128,13 +121,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -144,11 +130,7 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+
                     <TextView
                         android:id="@+id/etDob1"
                         android:textSize="20sp"
@@ -157,21 +139,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp" />
-
-                    <ImageButton
-                        android:id="@+id/ib_dob"
-                        android:background="@drawable/ic_date"
-                        android:layout_margin="5dp"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -184,13 +151,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -200,13 +160,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -219,13 +172,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -235,13 +181,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -254,13 +193,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -270,13 +202,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -289,13 +214,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -305,13 +223,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -324,13 +235,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -340,13 +244,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -359,13 +256,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -375,14 +265,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -395,13 +277,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -411,13 +286,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -430,13 +298,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -446,13 +307,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -465,13 +319,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -481,13 +328,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -500,13 +340,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -516,13 +349,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -535,13 +361,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -551,13 +370,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -570,12 +382,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
 
                 <EditText
                     android:padding="4dp"
@@ -586,13 +392,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -605,13 +404,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -621,13 +413,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -640,13 +425,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -656,13 +434,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -675,13 +446,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -691,16 +455,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:src="@drawable/happy"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
 
                     <TextView
                         android:gravity="center"
@@ -714,8 +468,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -725,14 +477,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -746,13 +490,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/sad"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -762,13 +499,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -781,13 +511,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -797,13 +520,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -816,13 +532,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -832,13 +541,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -851,13 +553,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -867,13 +562,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -886,13 +574,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -902,13 +583,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -921,13 +595,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -937,13 +604,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -956,13 +616,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -972,13 +625,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -991,13 +637,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1007,13 +646,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1026,13 +658,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/address"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1042,13 +667,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1061,13 +679,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/mobile_number"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1077,13 +688,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1096,13 +700,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/website"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1112,13 +709,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1131,14 +721,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/twitter"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1148,13 +730,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1167,14 +742,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/instagram"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1184,13 +751,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1203,14 +763,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/favrte_color"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1220,13 +772,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1239,14 +784,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/favrte_color"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1256,13 +793,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1275,14 +805,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/favrte_color"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1292,13 +814,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1311,14 +826,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/favrte_color"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1328,13 +835,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1347,14 +847,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/favrte_color"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1364,13 +856,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1383,14 +868,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/favrte_color"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1400,13 +877,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1419,14 +889,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/celeb"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1436,13 +898,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1455,14 +910,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/role"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1472,13 +919,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1491,14 +931,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/tv_show"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1508,13 +940,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1527,14 +952,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/favrte_band"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1544,13 +961,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1563,14 +973,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:src="@drawable/food"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <EditText
                     android:padding="4dp"
                     android:background="@drawable/edittext_design"
@@ -1580,13 +982,6 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
                         android:gravity="center"
@@ -1598,14 +993,6 @@
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/fav_sports"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
 
                 <EditText
                     android:padding="4dp"

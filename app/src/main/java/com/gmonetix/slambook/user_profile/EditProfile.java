@@ -155,14 +155,8 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
     }
 
     private void init() {
-        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory(false)
-                .cacheOnDisk(false)
-                .build();
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .defaultDisplayImageOptions(defaultOptions)
-                .build();
-        ImageLoader.getInstance().init(config);
+        utils = new Utils();
+        utils.getUilInstance(EditProfile.this);
 
         etName = (EditText) findViewById(R.id.edit_profile_name);
         etEmail = (EditText) findViewById(R.id.edit_profile_email);
@@ -187,7 +181,6 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
 
         home = (FloatingActionButton) findViewById(R.id.btn_home);
 
-        utils = new Utils();
         utils.setFont(EditProfile.this,tv01);
         utils.setFont(EditProfile.this,tv02);
         utils.setFont(EditProfile.this,tv03);
@@ -251,8 +244,9 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
                 break;
 
             case R.id.btn_home:
-                startActivity(new Intent(EditProfile.this,UserHome.class));
-                finish();
+                Intent intent = new Intent(EditProfile.this,UserHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
 
         }

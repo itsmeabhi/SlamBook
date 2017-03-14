@@ -47,9 +47,7 @@ public class Slams extends AppCompatActivity {
     tvHangoutPlace,tvTreatForBirthday,tvWeekendActivity,tvMemorableMoment,tvEmbarassingMoment,tvThingsToDoBeforeDie,tvWhatBoresMe,
     tvMcrazyAbout,tvMyBiggestStrength,tvThingsIHate,tvWhenMHappy,tvWhenMSad,tvWhenMMad,tvWorstHabit,tvBestThingAbtMe,tvFeelPowerfullWhen,
     tvBiggestAchievement,tvMyTeddyKnows,tvFb,tvAddress,tvPhoneNumber,tvWebsite,tvTwitter,tvInstagram,tvHpyMomentWidU,tvSadMomentWidU,
-    tvGoodThingsAbtU,tvBadThingsAbtU,tvFriendshipToMe,tvFavColor,tvFavCelebrities,tvFavRoleModel,tvFavTvShow,tvFavMusicBand,tvFavFood,tvFavSport,
-
-    tvWhenMHappy1,tvWhenMSad1,tvFb1,tvAddress1,tvPhoneNumber1,tvWebsite1,tvTwitter1,tvInstagram1,tvFavColor1,tvFavCelebrities1,tvFavRoleModel1,tvFavTvShow1,tvFavMusicBand1,tvFavFood1,tvFavSport1;
+    tvGoodThingsAbtU,tvBadThingsAbtU,tvFriendshipToMe,tvFavColor,tvFavCelebrities,tvFavRoleModel,tvFavTvShow,tvFavMusicBand,tvFavFood,tvFavSport;
     private FloatingActionButton editSlam, home;
 
     private Utils utils;
@@ -83,8 +81,9 @@ public class Slams extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Slams.this, UserHome.class));
-                finish();
+                Intent intent = new Intent(Slams.this,UserHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
         progressBar.setVisibility(View.VISIBLE);
@@ -289,38 +288,6 @@ public class Slams extends AppCompatActivity {
         editSlam = (FloatingActionButton) findViewById(R.id.btn_edit_slam);
         home = (FloatingActionButton) findViewById(R.id.btn_home);
         editSlam.setVisibility(View.GONE);
-
-        tvWhenMHappy1 = (TextView) findViewById(R.id.tvWhenMHappy1);
-        tvWhenMSad1 = (TextView) findViewById(R.id.tvWhenMSad1);
-        tvFb1 = (TextView) findViewById(R.id.tvFb1);
-        tvAddress1 = (TextView) findViewById(R.id.tvAddress1);
-        tvPhoneNumber1 = (TextView) findViewById(R.id.tvPhoneNumber1);
-        tvWebsite1 = (TextView) findViewById(R.id.tvWebsite1);
-        tvTwitter1 = (TextView) findViewById(R.id.tvTwitter1);
-        tvInstagram1 = (TextView) findViewById(R.id.tvInstagram1);
-        tvFavColor1 = (TextView) findViewById(R.id.tvFavColor1);
-        tvFavCelebrities1 = (TextView) findViewById(R.id.tvFavCelebrities1);
-        tvFavRoleModel1 = (TextView) findViewById(R.id.tvFavRoleModel1);
-        tvFavTvShow1 = (TextView) findViewById(R.id.tvFavTvShow1);
-        tvFavMusicBand1 = (TextView) findViewById(R.id.tvFavMusicBand1);
-        tvFavFood1 = (TextView) findViewById(R.id.tvFavFood1);
-        tvFavSport1 = (TextView) findViewById(R.id.tvFavSport1);
-
-        utils.setFont(Slams.this,tvWhenMHappy1);
-        utils.setFont(Slams.this,tvWhenMSad1);
-        utils.setFont(Slams.this,tvFb1);
-        utils.setFont(Slams.this,tvAddress1);
-        utils.setFont(Slams.this,tvPhoneNumber1);
-        utils.setFont(Slams.this,tvWebsite1);
-        utils.setFont(Slams.this,tvTwitter1);
-        utils.setFont(Slams.this,tvInstagram1);
-        utils.setFont(Slams.this,tvFavColor1);
-        utils.setFont(Slams.this,tvFavCelebrities1);
-        utils.setFont(Slams.this,tvFavRoleModel1);
-        utils.setFont(Slams.this,tvFavTvShow1);
-        utils.setFont(Slams.this,tvFavMusicBand1);
-        utils.setFont(Slams.this,tvFavFood1);
-        utils.setFont(Slams.this,tvFavSport1);
 
         utils.setFont(Slams.this,tvFromUsername);
         utils.setFont(Slams.this,tvName);

@@ -62,15 +62,6 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
         llWriteSlam.setOnClickListener(this);
         home.setOnClickListener(this);
 
-        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory(false)
-                .cacheOnDisk(false)
-                .build();
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .defaultDisplayImageOptions(defaultOptions)
-                .build();
-        ImageLoader.getInstance().init(config);
-
         tvname.setText("Name : " + name);
         tvemail.setText("Email : " + email);
         tvdescription.setText("About me : " + description);
@@ -110,6 +101,9 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
     }
 
     private void init() {
+        utils = new Utils();
+        utils.getUilInstance(FriendProfile.this);
+
         profileImage = (ImageView) findViewById(R.id.iv_friend_profile_image);
         genderImage = (ImageView) findViewById(R.id.iv_friend_profile_gender);
 
@@ -124,7 +118,6 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
         home = (FloatingActionButton) findViewById(R.id.btn_home);
         progressBar = (ProgressBar) findViewById(R.id.friend_profile_progress_bar);
 
-        utils = new Utils();
         utils.setFont(FriendProfile.this,tvname);
         utils.setFont(FriendProfile.this,tvemail);
         utils.setFont(FriendProfile.this,tvdescription);
@@ -137,14 +130,15 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_friend_profile_write_slam:
-                Intent intent = new Intent(FriendProfile.this,WriteSlam.class);
-                intent.putExtra(USERNAME_INTENT1,username);
-                startActivity(intent);
+                Intent intent1 = new Intent(FriendProfile.this,WriteSlam.class);
+                intent1.putExtra(USERNAME_INTENT1,username);
+                startActivity(intent1);
                 break;
 
             case R.id.btn_home:
-                startActivity(new Intent(FriendProfile.this,UserHome.class));
-                finish();
+                Intent intent2 = new Intent(FriendProfile.this,UserHome.class);
+                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent2);
                 break;
         }
     }

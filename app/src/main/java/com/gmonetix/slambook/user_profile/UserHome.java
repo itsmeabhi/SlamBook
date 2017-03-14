@@ -179,14 +179,8 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void init() {
-        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory(false)
-                .cacheOnDisk(false)
-                .build();
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .defaultDisplayImageOptions(defaultOptions)
-                .build();
-        ImageLoader.getInstance().init(config);
+        utils = new Utils();
+        utils.getUilInstance(UserHome.this);
 
         tvNumberOfSlamsReceived = (TextView) findViewById(R.id.tv_home_user_total_slams_received);
         tvNumberOfSlamsSent = (TextView) findViewById(R.id.tv_home_user_total_slams_sent);
@@ -198,9 +192,6 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
         llSent = (LinearLayout) findViewById(R.id.ll_no_sent_data);
         llReceived = (LinearLayout) findViewById(R.id.ll_no_received_data);
 
-        llSent.setVisibility(View.GONE);
-        llReceived.setVisibility(View.GONE);
-
         tv11 = (TextView) findViewById(R.id.user_home_tv1);
         tv12 = (TextView) findViewById(R.id.user_home_tv2);
         tv13 = (TextView) findViewById(R.id.user_home_tv3);
@@ -208,7 +199,6 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
         tv15 = (TextView) findViewById(R.id.user_home_tv5);
         tv16 = (TextView) findViewById(R.id.user_home_tv6);
 
-        utils = new Utils();
         utils.setFont(UserHome.this,tvNumberOfSlamsReceived);
         utils.setFont(UserHome.this,tvNumberOfSlamsSent);
         utils.setFont(UserHome.this,tv1);

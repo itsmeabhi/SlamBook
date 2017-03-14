@@ -1,6 +1,7 @@
 package com.gmonetix.slambook;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -26,6 +27,7 @@ import com.gmonetix.slambook.helper.SearchAdpater;
 import com.gmonetix.slambook.helper.SearchFriendsModel;
 import com.gmonetix.slambook.helper.Utils;
 import com.gmonetix.slambook.user_profile.FriendProfile;
+import com.gmonetix.slambook.user_profile.UserHome;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -46,6 +48,7 @@ public class SearchFriendsActivity extends AppCompatActivity implements AdapterV
     private TextView tv1, tv_friend_name_search;
     private ListView searchedListView;
     private Toolbar toolbar;
+    private FloatingActionButton home;
 
     public List<SearchFriendsModel> searchedFriends ;
     private Utils utils;
@@ -74,25 +77,20 @@ public class SearchFriendsActivity extends AppCompatActivity implements AdapterV
         searchedFriends = new ArrayList<>();
         searchedListView.setOnItemClickListener(this);
         Search.setOnClickListener(this);
+        home.setOnClickListener(this);
     }
 
     private void init() {
-        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory(false)
-                .cacheOnDisk(false)
-                .build();
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .defaultDisplayImageOptions(defaultOptions)
-                .build();
-        ImageLoader.getInstance().init(config);
+        utils = new Utils();
+        utils.getUilInstance(SearchFriendsActivity.this);
 
         searchedListView = (ListView) findViewById(R.id.search_list_view);
         etName = (EditText) findViewById(R.id.name_search);
         Search = (LinearLayout) findViewById(R.id.ll_btn_search);
         tv1 = (TextView) findViewById(R.id.tv_search);
         tv_friend_name_search = (TextView) findViewById(R.id.tv_friend_name_search);
+        home = (FloatingActionButton) findViewById(R.id.btn_home);
 
-        utils = new Utils();
         utils.setFont(SearchFriendsActivity.this,etName);
         utils.setFont(SearchFriendsActivity.this,tv1);
         utils.setFont(SearchFriendsActivity.this,tv_friend_name_search);
@@ -183,6 +181,12 @@ public class SearchFriendsActivity extends AppCompatActivity implements AdapterV
                     };
                     requestQueue.add(stringRequest);
                 }
+                break;
+
+            case R.id.btn_home:
+                Intent intent = new Intent(SearchFriendsActivity.this,UserHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }

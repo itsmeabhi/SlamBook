@@ -41,19 +41,19 @@
                 android:layout_height="wrap_content">
 
                 <TextView android:padding="8dp"
-                    android:id="@+id/tvName"
-                    android:text="Name:"
+                    android:id="@+id/tvFromUsername"
+                    android:text="UserName:"
                     android:layout_weight="1"
+                    android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <TextView android:padding="8dp"
-                    android:id="@+id/tvFromUsername"
-                    android:text="UserName:"
+                    android:id="@+id/tvName"
+                    android:text="Name:"
                     android:layout_weight="1"
-                    android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
@@ -307,30 +307,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:src="@drawable/happy"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                    <TextView
-                        android:gravity="center"
-                        android:id="@+id/tvWhenMHappy1"
-                        android:text="When I am happy :"
-                        android:textColor="@color/black"
-                        android:layout_marginStart="40dp"
-                        android:layout_marginLeft="40dp"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
                 <TextView android:padding="8dp"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -342,33 +318,6 @@
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:gravity="center"
-                    android:id="@+id/tvWhenMSad1"
-                    android:text="When I am sad :"
-                    android:textColor="@color/black"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginLeft="40dp"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:src="@drawable/sad"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
-
-                </LinearLayout>
 
                 <TextView android:padding="8dp"
                     android:background="@drawable/textbox_drawable"
@@ -454,31 +403,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvFb1"
-                        android:text="My facebook id :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/fb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <TextView android:padding="8dp"
                     android:gravity="center"
                     android:background="@drawable/textbox_drawable"
@@ -490,31 +414,6 @@
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvAddress1"
-                        android:text="I stay at ... :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/address"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
 
                 <TextView android:padding="8dp"
                     android:gravity="center"
@@ -528,31 +427,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvPhoneNumber1"
-                        android:text="My mobile number :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/mobile_number"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <TextView android:padding="8dp"
                     android:gravity="center"
                     android:background="@drawable/textbox_drawable"
@@ -564,31 +438,6 @@
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvWebsite1"
-                        android:text="I own this website(s) :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/website"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
 
                 <TextView android:padding="8dp"
                     android:gravity="center"
@@ -602,32 +451,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvTwitter1"
-                        android:text="My twitter id is :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/twitter"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <TextView android:padding="8dp"
                     android:gravity="center"
                     android:background="@drawable/textbox_drawable"
@@ -639,32 +462,6 @@
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvInstagram1"
-                        android:text="My instagram id is :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/instagram"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
 
                 <TextView android:padding="8dp"
                     android:gravity="center"
@@ -738,32 +535,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvFavColor1"
-                        android:text="My favourite color... :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/favrte_color"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <TextView android:padding="8dp"
                     android:gravity="center"
                     android:background="@drawable/textbox_drawable"
@@ -775,32 +546,6 @@
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvFavCelebrities1"
-                        android:text="My favourite celebrities... :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/celeb"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
 
                 <TextView android:padding="8dp"
                     android:gravity="center"
@@ -814,32 +559,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvFavRoleModel1"
-                        android:text="My favourite celebrities... :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/role"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <TextView android:padding="8dp"
                     android:gravity="center"
                     android:background="@drawable/textbox_drawable"
@@ -852,33 +571,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvFavTvShow1"
-                        android:text="My favourite Tv show... :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/tv_show"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
-                <TextView android:padding="8dp"
+                 <TextView android:padding="8dp"
                     android:gravity="center"
                     android:background="@drawable/textbox_drawable"
                     android:id="@+id/tvFavTvShow"
@@ -889,32 +582,6 @@
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvFavMusicBand1"
-                        android:text="My favourite music band... :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/favrte_band"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
 
                 <TextView android:padding="8dp"
                     android:gravity="center"
@@ -928,32 +595,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvFavFood1"
-                        android:text="My favourite food... :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/food"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
-
                 <TextView android:padding="8dp"
                     android:gravity="center"
                     android:background="@drawable/textbox_drawable"
@@ -965,32 +606,6 @@
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:id="@+id/tvFavSport1"
-                        android:text="My favourite game... :"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/fav_sports"
-                        android:scaleType="fitXY"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                </LinearLayout>
 
                 <TextView android:padding="8dp"
                     android:gravity="center"

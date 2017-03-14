@@ -2,6 +2,7 @@ package com.gmonetix.slambook.user_profile;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -30,6 +31,7 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     private LinearLayout editProfile;
     private ImageView profileImage, genderImage;
     private ProgressBar progressBar;
+    private FloatingActionButton home;
 
 
     private Utils utils;
@@ -53,6 +55,7 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
         init();
         tvUserName.setText(utils.getUserName(UserProfile.this));
         editProfile.setOnClickListener(this);
+        home.setOnClickListener(this);
 
         try{
             JSONArray jsonArray = new JSONArray(utils.readUserData(UserProfile.this, utils.getUserName(UserProfile.this)));
@@ -109,14 +112,8 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     }
 
     private void init() {
-        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory(false)
-                .cacheOnDisk(false)
-                .build();
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .defaultDisplayImageOptions(defaultOptions)
-                .build();
-        ImageLoader.getInstance().init(config);
+        utils = new Utils();
+        utils.getUilInstance(UserProfile.this);
 
         tv21 = (TextView) findViewById(R.id.tv21);
         tvName = (TextView) findViewById(R.id.tv_user_profile_name);
@@ -130,8 +127,8 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
         profileImage = (ImageView) findViewById(R.id.iv_user_profile_image1);
         genderImage = (ImageView) findViewById(R.id.user_profile_gender_image);
         progressBar = (ProgressBar) findViewById(R.id.user_profile_image_progress_bar);
+        home = (FloatingActionButton) findViewById(R.id.btn_home);
 
-        utils = new Utils();
         utils.setFont(UserProfile.this,tv21);
         utils.setFont(UserProfile.this,tvName);
         utils.setFont(UserProfile.this,tvEmail);
@@ -147,15 +144,21 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()) {
 
             case R.id.edit_user_profile:
-                Intent intent = new Intent(UserProfile.this,EditProfile.class);
-                intent.putExtra(INTENT_NAME,name);
-                intent.putExtra(INTENT_DESCRIPTION,description);
-                intent.putExtra(INTENT_DOB,dob);
-                intent.putExtra(INTENT_GENDER,gender);
-                intent.putExtra(INTENT_EMAIL,email);
-                intent.putExtra(INTENT_PHONENUMBER,phoneNumber);
-                intent.putExtra(INTENT_IMAGE,image);
-                startActivity(intent);
+                Intent intent1 = new Intent(UserProfile.this,EditProfile.class);
+                intent1.putExtra(INTENT_NAME,name);
+                intent1.putExtra(INTENT_DESCRIPTION,description);
+                intent1.putExtra(INTENT_DOB,dob);
+                intent1.putExtra(INTENT_GENDER,gender);
+                intent1.putExtra(INTENT_EMAIL,email);
+                intent1.putExtra(INTENT_PHONENUMBER,phoneNumber);
+                intent1.putExtra(INTENT_IMAGE,image);
+                startActivity(intent1);
+                break;
+
+            case R.id.btn_home:
+                Intent intent2 = new Intent(UserProfile.this,UserHome.class);
+                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent2);
                 break;
 
         }

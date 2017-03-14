@@ -2,6 +2,7 @@ package com.gmonetix.slambook;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.gmonetix.slambook.helper.Const;
 import com.gmonetix.slambook.helper.Utils;
 import com.gmonetix.slambook.user_login.UserLoginActivity;
+import com.gmonetix.slambook.user_profile.UserHome;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,6 +38,7 @@ public class PasswordChangeActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4;
     private EditText etOldPassword, etNewPassword, etNewPasswordAgain;
     private LinearLayout Change;
+    private FloatingActionButton home;
 
     private Utils utils;
     private String oldPassword, newPassword, newPasswordAgain;
@@ -52,6 +55,15 @@ public class PasswordChangeActivity extends AppCompatActivity {
         PasswordChangeActivity.this.setTitle("Change Password");
 
         init();
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PasswordChangeActivity.this,UserHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
         Change.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +142,7 @@ public class PasswordChangeActivity extends AppCompatActivity {
         etNewPasswordAgain = (EditText) findViewById(R.id.et_settings_new_password_again);
         etOldPassword = (EditText) findViewById(R.id.et_settings_old_password);
         Change = (LinearLayout) findViewById(R.id.ll_change_password);
+        home = (FloatingActionButton) findViewById(R.id.btn_home);
 
         utils = new Utils();
         utils.setFont(PasswordChangeActivity.this,tv1);

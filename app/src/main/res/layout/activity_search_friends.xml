@@ -30,7 +30,7 @@
         <TextView
             android:id="@+id/tv_friend_name_search"
             android:textColor="@color/black"
-            android:text="Friend's Name"
+            android:text="Friend's Name :"
             android:layout_margin="5dp"
             android:textSize="20sp"
             android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
         <EditText
             android:background="@drawable/edittext_design"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="30sp"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,13 +89,13 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_marginBottom="10dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="9dp"
         android:src="@drawable/des3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:id="@+id/footer1"

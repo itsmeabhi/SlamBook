@@ -8,29 +8,25 @@
     android:background="@color/colorPrimary"
     tools:context="com.gmonetix.slambook.user_profile.UserProfile">
 
-    <ScrollView
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:scrollbarFadeDuration="2000"
-        android:scrollbarSize="10dp"
-        android:verticalScrollbarPosition="right"
-        android:scrollbarThumbVertical="@drawable/scrollbar" >
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/toolbar"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_below="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <android.support.design.widget.AppBarLayout
-                android:id="@+id/appBarLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <include
-                    layout="@layout/toolbar"
-                    />
-            </android.support.design.widget.AppBarLayout>
 
             <FrameLayout
                 android:id="@+id/frame_image"
-                android:layout_below="@+id/appBarLayout"
                 android:layout_margin="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -56,13 +52,12 @@
                 android:layout_above="@+id/edit_user_profile"
                 android:id="@+id/tv_user_profile_username"
                 android:layout_marginBottom="8dp"
-                android:gravity="center"
                 android:layout_toRightOf="@+id/frame_image"
                 android:layout_toEndOf="@+id/frame_image"
                 android:textSize="25sp"
                 android:textColor="@color/black"
                 android:text="Username"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <LinearLayout

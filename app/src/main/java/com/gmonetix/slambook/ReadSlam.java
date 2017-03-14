@@ -1,13 +1,16 @@
 package com.gmonetix.slambook;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -23,6 +26,7 @@ import com.gmonetix.slambook.helper.ReadSlamModel;
 import com.gmonetix.slambook.helper.SearchAdpater;
 import com.gmonetix.slambook.helper.SearchFriendsModel;
 import com.gmonetix.slambook.helper.Utils;
+import com.gmonetix.slambook.user_profile.UserHome;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -44,6 +48,9 @@ public class ReadSlam extends AppCompatActivity implements AdapterView.OnItemCli
     private ListView listView;
     private Toolbar toolbar;
     private ProgressBar progressBar;
+    private FloatingActionButton home;
+    private LinearLayout llDataShow;
+    private TextView tv1, tv2, tv3;
 
     private List<ReadSlamModel> Slams;
     private ReadSlamAdapter adapter;
@@ -60,6 +67,15 @@ public class ReadSlam extends AppCompatActivity implements AdapterView.OnItemCli
         init();
         Slams = new ArrayList<>();
         listView.setOnItemClickListener(this);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReadSlam.this,UserHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
         progressBar.setVisibility(View.VISIBLE);
 
         RequestQueue requestQueue = Volley.newRequestQueue(ReadSlam.this);
@@ -80,6 +96,7 @@ public class ReadSlam extends AppCompatActivity implements AdapterView.OnItemCli
                             }
                             adapter = new ReadSlamAdapter(ReadSlam.this,Slams);
                             listView.setAdapter(adapter);
+                            llDataShow.setVisibility(View.GONE);
                             progressBar.setVisibility(View.GONE);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -107,18 +124,21 @@ public class ReadSlam extends AppCompatActivity implements AdapterView.OnItemCli
     }
 
     private void init() {
-        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory(false)
-                .cacheOnDisk(false)
-                .build();
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .defaultDisplayImageOptions(defaultOptions)
-                .build();
-        ImageLoader.getInstance().init(config);
+        utils = new Utils();
+        utils.getUilInstance(ReadSlam.this);
 
         listView = (ListView) findViewById(R.id.read_slam_listView);
         progressBar = (ProgressBar) findViewById(R.id.read_slam_progrss_bar);
-        utils = new Utils();
+        home = (FloatingActionButton) findViewById(R.id.btn_home);
+
+        llDataShow = (LinearLayout) findViewById(R.id.ll_no_received_slams);
+        tv1 = (TextView) findViewById(R.id.read_slam_tv1);
+        tv2 = (TextView) findViewById(R.id.read_slam_tv2);
+        tv3 = (TextView) findViewById(R.id.read_slam_tv3);
+
+        utils.setFont(ReadSlam.this,tv1);
+        utils.setFont(ReadSlam.this,tv2);
+        utils.setFont(ReadSlam.this,tv3);
     }
 
     @Override

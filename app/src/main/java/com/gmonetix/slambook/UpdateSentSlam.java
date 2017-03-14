@@ -463,8 +463,9 @@ public class UpdateSentSlam extends AppCompatActivity implements View.OnClickLis
                 break;
             
             case R.id.btn_home:
-                startActivity(new Intent(UpdateSentSlam.this, UserHome.class));
-                finish();
+                Intent intent = new Intent(UpdateSentSlam.this,UserHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }
