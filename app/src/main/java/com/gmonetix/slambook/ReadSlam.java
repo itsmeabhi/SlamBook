@@ -12,7 +12,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,18 +22,11 @@ import com.android.volley.toolbox.Volley;
 import com.gmonetix.slambook.helper.Const;
 import com.gmonetix.slambook.helper.ReadSlamAdapter;
 import com.gmonetix.slambook.helper.ReadSlamModel;
-import com.gmonetix.slambook.helper.SearchAdpater;
-import com.gmonetix.slambook.helper.SearchFriendsModel;
 import com.gmonetix.slambook.helper.Utils;
 import com.gmonetix.slambook.user_profile.UserHome;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,6 +51,8 @@ public class ReadSlam extends AppCompatActivity implements AdapterView.OnItemCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(ReadSlam.this,utils.getTheme(ReadSlam.this));
         setContentView(R.layout.activity_read_slam);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -124,7 +118,6 @@ public class ReadSlam extends AppCompatActivity implements AdapterView.OnItemCli
     }
 
     private void init() {
-        utils = new Utils();
         utils.getUilInstance(ReadSlam.this);
 
         listView = (ListView) findViewById(R.id.read_slam_listView);

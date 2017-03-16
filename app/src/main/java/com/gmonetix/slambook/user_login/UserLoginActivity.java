@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.gmonetix.slambook.ChangeTheme;
 import com.gmonetix.slambook.R;
 import com.gmonetix.slambook.helper.Const;
 import com.gmonetix.slambook.helper.Utils;
@@ -79,6 +80,8 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initialize() {
+        utils = new Utils();
+
         signIn = (LinearLayout) findViewById(R.id.ll_login);
         loginPassword = (EditText) findViewById(R.id.password_login);
         loginUserName = (EditText) findViewById(R.id.username_login);
@@ -89,7 +92,6 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
         tv_login = (TextView) findViewById(R.id.tv_login);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar_login_activity);
 
-        utils = new Utils();
         utils.setFont(UserLoginActivity.this,tv1);
         utils.setFont(UserLoginActivity.this,signUp);
         utils.setFont(UserLoginActivity.this,tv2);

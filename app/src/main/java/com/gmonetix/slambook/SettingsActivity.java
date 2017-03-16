@@ -35,8 +35,8 @@ import java.util.Map;
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar toolbar;
-    private TextView tv_settings_change_password, tv_settings_delete_account,tv_settings_slambook,tv_settings_version;
-    private LinearLayout llChangePassword, llDeleteAccount;
+    private TextView tv_settings_change_password, tv_settings_delete_account,tv_settings_slambook,tv_settings_version, tv_settings_change_theme;
+    private LinearLayout llChangePassword, llDeleteAccount, llChangeTheme;
     private FloatingActionButton home;
 
     private Utils utils;
@@ -44,6 +44,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(SettingsActivity.this,utils.getTheme(SettingsActivity.this));
         setContentView(R.layout.activity_settings);
         toolbar =(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,6 +55,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
         llChangePassword.setOnClickListener(this);
         llDeleteAccount.setOnClickListener(this);
+        llChangeTheme.setOnClickListener(this);
         home.setOnClickListener(this);
 
     }
@@ -64,14 +67,16 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         tv_settings_version = (TextView) findViewById(R.id.tv_settings_version);
         llChangePassword = (LinearLayout) findViewById(R.id.ll_settings_change_password);
         llDeleteAccount = (LinearLayout) findViewById(R.id.ll_settings_delete_account);
+        llChangeTheme = (LinearLayout) findViewById(R.id.ll_settings_change_theme);
+        tv_settings_change_theme = (TextView) findViewById(R.id.tv_settings_change_theme);
 
         home = (FloatingActionButton) findViewById(R.id.btn_home);
 
-        utils = new Utils();
         utils.setFont(SettingsActivity.this,tv_settings_change_password);
         utils.setFont(SettingsActivity.this,tv_settings_delete_account);
         utils.setFont(SettingsActivity.this,tv_settings_slambook);
         utils.setFont(SettingsActivity.this,tv_settings_version);
+        utils.setFont(SettingsActivity.this,tv_settings_change_theme);
     }
 
     @Override
@@ -86,6 +91,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 Intent intent = new Intent(SettingsActivity.this,UserHome.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                break;
+
+            case R.id.ll_settings_change_theme:
+                startActivity(new Intent(SettingsActivity.this,ChangeTheme.class));
                 break;
 
             case R.id.ll_settings_delete_account:

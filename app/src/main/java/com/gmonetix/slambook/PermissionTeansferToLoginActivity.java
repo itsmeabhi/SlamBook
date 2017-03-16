@@ -5,14 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.gmonetix.slambook.helper.RuntimePermission;
+import com.gmonetix.slambook.helper.Utils;
 import com.gmonetix.slambook.user_login.UserLoginActivity;
 
 public class PermissionTeansferToLoginActivity extends RuntimePermission{
     private static final int REQUEST_PERMISSION = 10;
+    private Utils utils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(PermissionTeansferToLoginActivity.this,utils.getTheme(PermissionTeansferToLoginActivity.this));
         setContentView(R.layout.activity_user_login);
 
         requestAppPermission(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_NETWORK_STATE,Manifest.permission.INTERNET},R.string.permission,REQUEST_PERMISSION);

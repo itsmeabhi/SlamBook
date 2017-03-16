@@ -1,12 +1,16 @@
 package com.gmonetix.slambook;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -45,6 +50,7 @@ public class WriteSlam extends AppCompatActivity implements View.OnClickListener
             etBiggestAchievement1,etMyTeddyKnows1,etFb1,etAddress1,etPhoneNumber1,etWebsite1,etTwitter1,etInstagram1,etHpyMomentWidU1,etSadMomentWidU1,
             etGoodThingsAbtU1,etBadThingsAbtU1,etFriendshipToMe1,etFavColor1,etFavCelebrities1,etFavRoleModel1,etFavTvShow1,etFavMusicBand1,etFavFood1,etFavSport1;
     private FloatingActionButton submit, home;
+    private LinearLayout dob;
     
     private Utils utils;
     private String NickName = "",Hobbies = "",OnFamousNameChange = "",Aim = "",LoveWearing = "",ZodiacSign = "",
@@ -52,27 +58,65 @@ public class WriteSlam extends AppCompatActivity implements View.OnClickListener
             McrazyAbout = "",MyBiggestStrength = "",ThingsIHate = "",WhenMHappy = "",WhenMSad = "",WhenMMad = "",WorstHabit = "",BestThingAbtMe = "",FeelPowerfullWhen = "",
             BiggestAchievement = "",MyTeddyKnows = "",Fb = "",Address = "",PhoneNumber = "",Website = "",Twitter = "",Instagram = "",HpyMomentWidU = "",SadMomentWidU = "",
             GoodThingsAbtU = "",BadThingsAbtU = "",FriendshipToMe = "",FavColor = "",FavCelebrities = "",FavRoleModel = "",FavTvShow = "",FavMusicBand = "",FavFood = "",FavSport = "";
-    private String toUserName = "",Name = "",Dob,Mood;
+    private String toUserName = "",Name = "",Dob="";
 
     private static final String USERNAME_INTENT1 = "username1";
+    private static final int DATE_PICKER_DIALOG_ID = 0;
+    private int year_x,month_x,day_x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(WriteSlam.this,utils.getTheme(WriteSlam.this));
         setContentView(R.layout.activity_write_slam);
 
         init();
+
+        final Calendar calendar = Calendar.getInstance();
+        year_x = calendar.get(Calendar.YEAR)-10;
+        month_x = calendar.get(Calendar.MONTH);
+        day_x = calendar.get(Calendar.DAY_OF_MONTH);
+
         if (getIntent().hasExtra(USERNAME_INTENT1)) {
             toUserName = getIntent().getExtras().getString(USERNAME_INTENT1);
         }
         submit.setOnClickListener(this);
         home.setOnClickListener(this);
+        dob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(DATE_PICKER_DIALOG_ID);
+            }
+        });
     }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        if (id == DATE_PICKER_DIALOG_ID) {
+            return new DatePickerDialog(this, dPickerListener, year_x, month_x, day_x);
+        }
+        return  null;
+    }
+
+    private DatePickerDialog.OnDateSetListener dPickerListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            year_x = year;
+            month_x = month + 1;
+            day_x = dayOfMonth;
+            Dob = "Date of birth : " + String.valueOf(day_x) + "/" + String.valueOf(month_x) + "/" + String.valueOf(year_x);
+            etDob1.setText(Dob);
+        }
+    };
 
     private void init() {
         
         submit = (FloatingActionButton) findViewById(R.id.btn_send);
         home = (FloatingActionButton) findViewById(R.id.btn_home);
+
+        dob = (LinearLayout) findViewById(R.id.ll_write_slam_dob);
+
 
         etNickName = (EditText) findViewById(R.id.etNickName);
         etHobbies = (EditText) findViewById(R.id.etHobbies);
@@ -161,7 +205,6 @@ public class WriteSlam extends AppCompatActivity implements View.OnClickListener
         etFavFood1 = (TextView) findViewById(R.id.etFavFood1);
         etFavSport1 = (TextView) findViewById(R.id.etFavSport1);
 
-        utils = new Utils();
         utils.setFont(WriteSlam.this,etNickName);
         utils.setFont(WriteSlam.this,etHobbies);
         utils.setFont(WriteSlam.this,etOnFamousNameChange);
@@ -335,13 +378,11 @@ public class WriteSlam extends AppCompatActivity implements View.OnClickListener
                         params.put("to_user_name",toUserName);
                         params.put("from_user_name",utils.getUserName(WriteSlam.this));
                         params.put("sent_on",DateFormat.getDateTimeInstance().format(new Date()));
-
                         params.put("name",Name);
                         params.put("nick_name",NickName);
                         params.put("dob",Dob);
                         params.put("hobbies",Hobbies);
                         params.put("on_famous_name_change_to",OnFamousNameChange);
-                        params.put("mood",Mood);
                         params.put("aim",Aim);
                         params.put("love_wearing",LoveWearing);
                         params.put("zodiac_sign",ZodiacSign);

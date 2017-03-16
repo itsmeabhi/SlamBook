@@ -40,5 +40,6 @@ dependencies {
     compile 'com.github.bloder:magic:1.1'
     compile 'com.afollestad.material-dialogs:core:0.9.3.0'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     testCompile 'junit:junit:4.12'
 }

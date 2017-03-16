@@ -5,7 +5,6 @@
     android:id="@+id/activity_update_sent_slam"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     tools:context="com.gmonetix.slambook.UpdateSentSlam">
 
     <android.support.design.widget.AppBarLayout

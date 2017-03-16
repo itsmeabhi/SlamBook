@@ -83,6 +83,8 @@ public class UpdateSentSlam extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(UpdateSentSlam.this,utils.getTheme(UpdateSentSlam.this));
         setContentView(R.layout.activity_update_sent_slam);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -130,8 +132,6 @@ public class UpdateSentSlam extends AppCompatActivity implements View.OnClickLis
     }
 
     private void init() {
-        utils = new Utils();
-        
         update = (FloatingActionButton) findViewById(R.id.btn_update);
         home = (FloatingActionButton) findViewById(R.id.btn_home);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_update_sent_slam);

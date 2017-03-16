@@ -49,6 +49,8 @@ public class PasswordChangeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(PasswordChangeActivity.this,utils.getTheme(PasswordChangeActivity.this));
         setContentView(R.layout.activity_password_change);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -144,7 +146,6 @@ public class PasswordChangeActivity extends AppCompatActivity {
         Change = (LinearLayout) findViewById(R.id.ll_change_password);
         home = (FloatingActionButton) findViewById(R.id.btn_home);
 
-        utils = new Utils();
         utils.setFont(PasswordChangeActivity.this,tv1);
         utils.setFont(PasswordChangeActivity.this,tv2);
         utils.setFont(PasswordChangeActivity.this,tv3);

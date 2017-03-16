@@ -72,6 +72,8 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(EditProfile.this,utils.getTheme(EditProfile.this));
         setContentView(R.layout.activity_edit_profile);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -155,7 +157,6 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
     }
 
     private void init() {
-        utils = new Utils();
         utils.getUilInstance(EditProfile.this);
 
         etName = (EditText) findViewById(R.id.edit_profile_name);

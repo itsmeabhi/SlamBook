@@ -47,6 +47,8 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(UserProfile.this,utils.getTheme(UserProfile.this));
         setContentView(R.layout.activity_user_profile);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -78,8 +80,8 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
         tvDob.setText(dob);
         tvDescription.setText(description);
         if (gender.equals("MALE"))
-            genderImage.setImageDrawable(getResources().getDrawable(R.drawable.boy1));
-        else genderImage.setImageDrawable(getResources().getDrawable(R.drawable.face4));
+            genderImage.setImageDrawable(getResources().getDrawable(R.drawable.male));
+        else genderImage.setImageDrawable(getResources().getDrawable(R.drawable.female));
 
         ImageLoader.getInstance().displayImage(image, profileImage, new ImageLoadingListener() {
             @Override
@@ -112,7 +114,6 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     }
 
     private void init() {
-        utils = new Utils();
         utils.getUilInstance(UserProfile.this);
 
         tv21 = (TextView) findViewById(R.id.tv21);

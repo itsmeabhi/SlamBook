@@ -45,6 +45,8 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(FriendProfile.this,utils.getTheme(FriendProfile.this));
         setContentView(R.layout.activity_friend_profile);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -101,7 +103,6 @@ public class FriendProfile extends AppCompatActivity implements View.OnClickList
     }
 
     private void init() {
-        utils = new Utils();
         utils.getUilInstance(FriendProfile.this);
 
         profileImage = (ImageView) findViewById(R.id.iv_friend_profile_image);

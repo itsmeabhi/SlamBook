@@ -59,6 +59,8 @@ public class SentSlamsActivty extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(SentSlamsActivty.this,utils.getTheme(SentSlamsActivty.this));
         setContentView(R.layout.activity_sent_slams_activty);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -137,8 +139,6 @@ public class SentSlamsActivty extends AppCompatActivity implements AdapterView.O
         tv3 = (TextView) findViewById(R.id.sent_slams_tv3);
 
         home = (FloatingActionButton) findViewById(R.id.btn_home);
-
-        utils = new Utils();
 
         utils.setFont(SentSlamsActivty.this,tv1);
         utils.setFont(SentSlamsActivty.this,tv2);

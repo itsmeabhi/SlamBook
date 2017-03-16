@@ -62,6 +62,8 @@ public class Slams extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(Slams.this,utils.getTheme(Slams.this));
         setContentView(R.layout.activity_slams);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -234,7 +236,6 @@ public class Slams extends AppCompatActivity {
     }
 
     private void init() {
-        utils = new Utils();
         utils.getUilInstance(Slams.this);
 
         profilePic = (ImageView) findViewById(R.id.iv_profile_image_read_slam_final);

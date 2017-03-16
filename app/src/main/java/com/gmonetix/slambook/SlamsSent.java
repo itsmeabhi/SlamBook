@@ -68,6 +68,8 @@ public class SlamsSent extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(SlamsSent.this,utils.getTheme(SlamsSent.this));
         setContentView(R.layout.activity_slams);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -240,7 +242,6 @@ public class SlamsSent extends AppCompatActivity implements View.OnClickListener
     }
 
     private void init() {
-        utils = new Utils();
         
         editSlam = (FloatingActionButton) findViewById(R.id.btn_edit_slam);
         home = (FloatingActionButton) findViewById(R.id.btn_home);

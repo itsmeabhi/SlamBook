@@ -25,4 +25,64 @@
     <color name="btn">#2196F3</color>
     <color name="btn_pressed">#90CAF9</color>
     <color name="btn_focused">#0D47A1</color>
+
+    <!-- Theme Colors -->
+
+    <color name="redColorPrimary">#F44336</color>
+    <color name="redColorPrimaryDark">#D32F2F</color>
+
+    <color name="pinkColorPrimary">#E91E63</color>
+    <color name="pinkColorPrimaryDark">#C2185B</color>
+
+    <color name="purpleColorPrimary">#9C27B0</color>
+    <color name="purpleColorPrimaryDark">#7B1FA2</color>
+
+    <color name="deepPurpleColorPrimary">#673AB7</color>
+    <color name="deepPurpleColorPrimaryDark">#512DA8</color>
+
+    <color name="indigoColorPrimary">#3F51B5</color>
+    <color name="indigoColorPrimaryDark">#303F9F</color>
+
+    <color name="blueColorPrimary">#2196F3</color>
+    <color name="blueColorPrimaryDark">#1976D2</color>
+
+    <color name="lightBlueColorPrimary">#03A9F4</color>
+    <color name="lightBlueColorPrimaryDark">#0288D1</color>
+
+    <color name="cyanColorPrimary">#00BCD4</color>
+    <color name="cyanColorPrimaryDark">#0097A7</color>
+
+    <color name="tealColorPrimary">#009688</color>
+    <color name="tealColorPrimaryDark">#00796B</color>
+
+    <color name="greenColorPrimary">#4CAF50</color>
+    <color name="greenColorPrimaryDark">#388E3C</color>
+
+    <color name="lightGreenColorPrimary">#8BC34A</color>
+    <color name="lightGreenColorPrimaryDark">#689F38</color>
+
+    <color name="limeColorPrimary">#CDDC39</color>
+    <color name="limeColorPrimaryDark">#AFB42B</color>
+
+    <color name="yellowColorPrimary">#FFEB3B</color>
+    <color name="yellowColorPrimaryDark">#FBC02D</color>
+
+    <color name="amberColorPrimary">#FFC107</color>
+    <color name="amberColorPrimaryDark">#FFA000</color>
+
+ <!--   <color name="orangeColorPrimary">#FF9800</color>
+    <color name="orangeColorPrimaryDark">#F57C00</color>  -->
+
+    <color name="deepOrangeColorPrimary">#FF5722</color>
+    <color name="deepOrangeColorPrimaryDark">#E64A19</color>
+
+    <color name="brownColorPrimary">#795548</color>
+    <color name="brownColorPrimaryDark">#5D4037</color>
+
+    <color name="greyColorPrimary">#9E9E9E</color>
+    <color name="greyColorPrimaryDark">#616161</color>
+
+    <color name="blueGreyColorPrimary">#607D8B</color>
+    <color name="blueGreyColorPrimaryDark">#455A64</color>
+
 </resources>

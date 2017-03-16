@@ -5,7 +5,6 @@
     android:id="@+id/content_user_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.gmonetix.slambook.user_profile.UserHome"
     tools:showIn="@layout/app_bar_user_home">

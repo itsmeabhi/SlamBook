@@ -67,6 +67,8 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate  (savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(UserHome.this,utils.getTheme(UserHome.this));
         setContentView(R.layout.activity_user_home);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -179,7 +181,6 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void init() {
-        utils = new Utils();
         utils.getUilInstance(UserHome.this);
 
         tvNumberOfSlamsReceived = (TextView) findViewById(R.id.tv_home_user_total_slams_received);

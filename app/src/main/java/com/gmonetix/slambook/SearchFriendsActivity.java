@@ -67,6 +67,8 @@ public class SearchFriendsActivity extends AppCompatActivity implements AdapterV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
+        utils.setThemeOnApp(SearchFriendsActivity.this,utils.getTheme(SearchFriendsActivity.this));
         setContentView(R.layout.activity_search_friends);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -81,7 +83,6 @@ public class SearchFriendsActivity extends AppCompatActivity implements AdapterV
     }
 
     private void init() {
-        utils = new Utils();
         utils.getUilInstance(SearchFriendsActivity.this);
 
         searchedListView = (ListView) findViewById(R.id.search_list_view);

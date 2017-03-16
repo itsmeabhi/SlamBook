@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.gmonetix.slambook.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -30,6 +31,9 @@ public class Utils {
     private static final String PASSWORD_SP = "password_SP";
     private static final String PASSWORD = "password";
 
+    private static final String THEME_SP = "theme_SP";
+    private static final String THEME = "theme";
+
     private static final String SLAMS_SENT_SP = "slams_sent_sp";
     private static final String SLAMS_SENT = "slams_sent";
     private static final String SLAMS_RECEIVED_SP = "slams_received_sp";
@@ -47,6 +51,25 @@ public class Utils {
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         activty.startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_CODE);
+    }
+
+    public int getTheme(Activity activity) {
+
+        int themeId;
+        sharedPreference = activity.getSharedPreferences(THEME_SP , Context.MODE_PRIVATE);
+        if(sharedPreference.contains(THEME)){
+            themeId = sharedPreference.getInt(THEME,R.style.AppTheme);
+        } else
+            themeId = R.style.AppTheme;
+
+        return themeId;
+    }
+
+    public void setTheme(Activity activity, int themeId) {
+        sharedPreference = activity.getSharedPreferences(THEME_SP , Context.MODE_PRIVATE);
+        editor = sharedPreference.edit();
+        editor.putInt(THEME,themeId);
+        editor.commit();
     }
 
     public boolean getLoginStatus(Activity activity) {
@@ -197,6 +220,10 @@ public class Utils {
                 .defaultDisplayImageOptions(defaultOptions)
                 .build();
         ImageLoader.getInstance().init(config);
+    }
+
+    public void setThemeOnApp(Activity activity,int themeId) {
+        activity.getTheme().applyStyle(themeId, true);
     }
 
 }

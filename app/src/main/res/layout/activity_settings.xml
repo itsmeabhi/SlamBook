@@ -74,9 +74,38 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_margin="16dp"
+        android:layout_below="@+id/llSettings2"
+        android:background="@drawable/button_xml"
+        android:id="@+id/ll_settings_change_theme"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_theme"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:id="@+id/tv_settings_change_theme"
+            android:textColor="@color/black"
+            android:text="Change Theme"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
         <LinearLayout
             android:layout_margin="16dp"
-            android:layout_below="@+id/llSettings2"
+            android:layout_below="@+id/ll_settings_change_theme"
             android:background="@drawable/button_xml"
             android:id="@+id/ll_settings_change_password"
             android:orientation="horizontal"

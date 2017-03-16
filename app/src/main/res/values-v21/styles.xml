@@ -1,1 +1,173 @@
-<resources></resources>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <!-- Custom themes -->
+    <style name="Red" >
+        <item name="android:windowBackground">@color/redColorPrimary</item>
+        <item name="colorPrimary">@color/redColorPrimary</item>
+        <item name="colorPrimaryDark">@color/redColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Pink" >
+        <item name="android:windowBackground">@color/pinkColorPrimary</item>
+        <item name="colorPrimary">@color/pinkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/pinkColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Purple" >
+        <item name="android:windowBackground">@color/purpleColorPrimary</item>
+        <item name="colorPrimary">@color/purpleColorPrimary</item>
+        <item name="colorPrimaryDark">@color/purpleColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="DeepPurple" >
+        <item name="android:windowBackground">@color/deepPurpleColorPrimary</item>
+        <item name="colorPrimary">@color/deepPurpleColorPrimary</item>
+        <item name="colorPrimaryDark">@color/deepPurpleColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Indigo" >
+        <item name="android:windowBackground">@color/indigoColorPrimary</item>
+        <item name="colorPrimary">@color/indigoColorPrimary</item>
+        <item name="colorPrimaryDark">@color/indigoColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Blue" >
+        <item name="android:windowBackground">@color/blueColorPrimary</item>
+        <item name="colorPrimary">@color/blueColorPrimary</item>
+        <item name="colorPrimaryDark">@color/blueColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="LightBlue" >
+        <item name="android:windowBackground">@color/lightBlueColorPrimary</item>
+        <item name="colorPrimary">@color/lightBlueColorPrimary</item>
+        <item name="colorPrimaryDark">@color/lightBlueColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Cyan" >
+        <item name="android:windowBackground">@color/cyanColorPrimary</item>
+        <item name="colorPrimary">@color/cyanColorPrimary</item>
+        <item name="colorPrimaryDark">@color/cyanColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Teal" >
+        <item name="android:windowBackground">@color/tealColorPrimary</item>
+        <item name="colorPrimary">@color/tealColorPrimary</item>
+        <item name="colorPrimaryDark">@color/tealColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Green" >
+        <item name="android:windowBackground">@color/greenColorPrimary</item>
+        <item name="colorPrimary">@color/greenColorPrimary</item>
+        <item name="colorPrimaryDark">@color/greenColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="LightGreen" >
+        <item name="android:windowBackground">@color/lightGreenColorPrimary</item>
+        <item name="colorPrimary">@color/lightGreenColorPrimary</item>
+        <item name="colorPrimaryDark">@color/lightGreenColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Lime" >
+        <item name="android:windowBackground">@color/limeColorPrimary</item>
+        <item name="colorPrimary">@color/limeColorPrimary</item>
+        <item name="colorPrimaryDark">@color/limeColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+    <style name="Yellow" >
+        <item name="android:windowBackground">@color/yellowColorPrimary</item>
+        <item name="colorPrimary">@color/yellowColorPrimary</item>
+        <item name="colorPrimaryDark">@color/yellowColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+    <style name="Amber" >
+        <item name="android:windowBackground">@color/amberColorPrimary</item>
+        <item name="colorPrimary">@color/amberColorPrimary</item>
+        <item name="colorPrimaryDark">@color/amberColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="DeepOrange" >
+        <item name="android:windowBackground">@color/deepOrangeColorPrimary</item>
+        <item name="colorPrimary">@color/deepOrangeColorPrimary</item>
+        <item name="colorPrimaryDark">@color/deepOrangeColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Brown" >
+        <item name="android:windowBackground">@color/brownColorPrimary</item>
+        <item name="colorPrimary">@color/brownColorPrimary</item>
+        <item name="colorPrimaryDark">@color/brownColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+    <style name="Grey" >
+        <item name="android:windowBackground">@color/greyColorPrimary</item>
+        <item name="colorPrimary">@color/greyColorPrimary</item>
+        <item name="colorPrimaryDark">@color/greyColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="BlueGrey" >
+        <item name="android:windowBackground">@color/blueGreyColorPrimary</item>
+        <item name="colorPrimary">@color/blueGreyColorPrimary</item>
+        <item name="colorPrimaryDark">@color/blueGreyColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+</resources>

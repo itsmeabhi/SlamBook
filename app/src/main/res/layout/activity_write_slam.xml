@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_slams"
-    android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.gmonetix.slambook.WriteSlam">
@@ -60,6 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <LinearLayout
+                    android:id="@+id/ll_write_slam_dob"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
