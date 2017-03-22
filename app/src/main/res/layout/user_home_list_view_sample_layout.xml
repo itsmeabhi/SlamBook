@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
         <FrameLayout
+            android:id="@+id/frameLayout1"
             android:layout_margin="16dp"
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
@@ -25,5 +26,15 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/user_home_listview_progress_bar_sample_layout" />
         </FrameLayout>
+
+        <TextView
+            android:id="@+id/user_home_listview_name_sample"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/frameLayout1"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:text="name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 </RelativeLayout>

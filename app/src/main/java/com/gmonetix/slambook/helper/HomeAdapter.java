@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.gmonetix.slambook.R;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -52,6 +53,7 @@ public class HomeAdapter extends BaseAdapter {
 
             holder.profilePic = (ImageView) convertView.findViewById(R.id.user_home_listview_image_view_sample_layout);
             holder.progressBar = (ProgressBar) convertView.findViewById(R.id.user_home_listview_progress_bar_sample_layout);
+            holder.name = (TextView) convertView.findViewById(R.id.user_home_listview_name_sample);
 
             convertView.setTag(holder);
         } else {
@@ -59,6 +61,7 @@ public class HomeAdapter extends BaseAdapter {
         }
 
         final ViewHolder finalHolder = holder;
+        holder.name.setText(fromData.get(position).getName());
         ImageLoader.getInstance().displayImage(fromData.get(position).getImage(), holder.profilePic, new ImageLoadingListener() {
             @Override
             public void onLoadingStarted(String s, View view) {
@@ -88,5 +91,6 @@ public class HomeAdapter extends BaseAdapter {
     private class ViewHolder{
         private ImageView profilePic;
         private ProgressBar progressBar;
+        private TextView name;
     }
 }

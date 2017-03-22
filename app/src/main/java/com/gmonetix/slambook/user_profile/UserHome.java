@@ -88,6 +88,7 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                                 HomeModel model = new HomeModel();
                                 model.setImage(jsonObject.getString(Const.USER_ACCOUNT_DATA_IMAGE));
                                 model.setFromUserName(jsonObject.getString(Const.USER_ACCOUNT_DATA_USER_NAME));
+                                model.setName(jsonObject.getString(Const.USER_ACCOUNT_DATA_NAME));
                                 fromData.add(model);
                                 utils.setSlamsReceived(UserHome.this,(i+1));
                                 tvNumberOfSlamsReceived.setText("Slams received : "+ String.valueOf(utils.getSlamsReceived(UserHome.this)));
@@ -136,6 +137,7 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
                                 HomeModel model = new HomeModel();
                                 model.setImage(jsonObject.getString(Const.USER_ACCOUNT_DATA_IMAGE));
                                 model.setFromUserName(jsonObject.getString("to_user_name"));
+                                model.setName(jsonObject.getString(Const.USER_ACCOUNT_DATA_NAME));
                                 toData.add(model);
                                 utils.setSlamsSent(UserHome.this,(i+1));
                                 tvNumberOfSlamsSent.setText("Slams sent : "+ String.valueOf(utils.getSlamsSent(UserHome.this)));

@@ -137,7 +137,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChangeTheme"></activity>
+        <activity android:name=".ChangeTheme" />
+        <activity android:name=".ForgotPassword"></activity>
     </application>
 
 </manifest>

@@ -1,15 +1,20 @@
 package com.gmonetix.slambook.user_login;
 
+import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.DragEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
@@ -20,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.gmonetix.slambook.ChangeTheme;
+import com.gmonetix.slambook.ForgotPassword;
 import com.gmonetix.slambook.R;
 import com.gmonetix.slambook.helper.Const;
 import com.gmonetix.slambook.helper.Utils;
@@ -35,7 +41,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
 
     private EditText loginUserName, loginPassword;
     private LinearLayout signIn;
-    private TextView signUp, tv1, tv2, sampleTextLogin, tv_login;
+    private TextView signUp, tv1, tv2, sampleTextLogin, tv_login, forgotPassword;
     private Toolbar toolbar;
     private ProgressBar progressBar;
 
@@ -76,6 +82,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
 
         signUp.setOnClickListener(this);
         signIn.setOnClickListener(this);
+        forgotPassword.setOnClickListener(this);
 
     }
 
@@ -90,6 +97,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
         tv1 = (TextView) findViewById(R.id.tv1);
         tv2 = (TextView) findViewById(R.id.tv2);
         tv_login = (TextView) findViewById(R.id.tv_login);
+        forgotPassword = (TextView) findViewById(R.id.forgot_password_login_screen);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar_login_activity);
 
         utils.setFont(UserLoginActivity.this,tv1);
@@ -99,6 +107,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
         utils.setFont(UserLoginActivity.this,loginUserName);
         utils.setFont(UserLoginActivity.this,loginPassword);
         utils.setFont(UserLoginActivity.this,tv_login);
+        utils.setFont(UserLoginActivity.this,forgotPassword);
     }
 
     @Override
@@ -167,6 +176,10 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
 
             case R.id.register_from_login_screen:
                 startActivity(new Intent(UserLoginActivity.this, UserRegistrationActivity.class));
+                break;
+
+            case R.id.forgot_password_login_screen:
+                startActivity(new Intent(UserLoginActivity.this, ForgotPassword.class));
                 break;
         }
     }

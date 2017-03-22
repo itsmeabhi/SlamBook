@@ -224,15 +224,6 @@ public class UserRegistrationActivity extends AppCompatActivity implements View.
 
         final ProgressDialog loading = ProgressDialog.show(this,"Registering...","Please wait...",false,false);
 
-        String image = "";
-        if (bitmap != null)
-        {
-            image = getStringImage(bitmap);
-        } else {
-            bitmap  = BitmapFactory.decodeResource(getResources(),R.drawable.profile);
-            image = getStringImage(bitmap);
-        }
-
         name = etName.getText().toString().trim();
         email = etEmail.getText().toString().trim();
         username = etUsername.getText().toString().trim();
@@ -240,6 +231,20 @@ public class UserRegistrationActivity extends AppCompatActivity implements View.
         dob = String.valueOf(day_x) + "/" + String.valueOf(month_x) + "/" + String.valueOf(year_x);
         description = etDescription.getText().toString().trim();
         phonenumber = etPhoneNumber.getText().toString().trim();
+
+        String image = "";
+        if (bitmap != null)
+        {
+            image = getStringImage(bitmap);
+        } else {
+            if (gender.equals("MALE")) {
+                bitmap  = BitmapFactory.decodeResource(getResources(),R.drawable.male);
+                image = getStringImage(bitmap);
+            } else {
+                bitmap  = BitmapFactory.decodeResource(getResources(),R.drawable.female);
+                image = getStringImage(bitmap);
+            }
+        }
 
         final String finalImage = image;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Const.register_url,
@@ -259,7 +264,7 @@ public class UserRegistrationActivity extends AppCompatActivity implements View.
                                 finish();
                             } else if(jsonObject.getString("code").equals("registraion_unsuccessfull")) {
                                 Toast.makeText(UserRegistrationActivity.this,jsonObject.getString("message"), Toast.LENGTH_LONG).show();
-                            } else Toast.makeText(UserRegistrationActivity.this, "Some error occurred ! Try again later", Toast.LENGTH_LONG).show();
+                            } else Toast.makeText(UserRegistrationActivity.this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(UserRegistrationActivity.this, "Some error occurred ! Try again later", Toast.LENGTH_LONG).show();

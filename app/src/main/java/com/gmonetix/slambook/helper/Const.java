@@ -6,6 +6,8 @@ public class Const {
 
     public static final String register_url ="http://www.gmonetix.com/slambook/register.php";
 
+    public static final String forgot_password = "http://www.gmonetix.com/slambook/forgotPassword.php";
+
     public static final String url_search = "http://www.gmonetix.com/slambook/search.php";
 
     public static final String update_account_details = "http://www.gmonetix.com/slambook/updateAccountDetails.php";
