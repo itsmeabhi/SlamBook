@@ -7,22 +7,25 @@
     android:layout_height="match_parent"
     tools:context="com.gmonetix.slambook.user_profile.FriendProfile">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/toolbar"
+            />
+
+    </android.support.design.widget.AppBarLayout>
+
     <ScrollView
+        android:layout_above="@+id/ll_friend_profile_write_slam"
+        android:layout_below="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <android.support.design.widget.AppBarLayout
-                android:id="@+id/appBarLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <include
-                    layout="@layout/toolbar"
-                    />
-
-            </android.support.design.widget.AppBarLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -57,7 +60,7 @@
                     android:layout_gravity="center"
                     android:id="@+id/tv_friend_profile_username"
                     android:layout_marginBottom="8dp"
-                    android:textSize="20sp"
+                    android:textSize="30sp"
                     android:textColor="@color/black"
                     android:text="Username"
                     android:layout_width="match_parent"
@@ -75,7 +78,7 @@
                 <TextView
                     android:id="@+id/tv_friend_profile_name"
                     android:layout_margin="5dp"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:textColor="@color/black"
                     android:text="Name"
                     android:layout_width="match_parent"
@@ -84,7 +87,7 @@
                 <TextView
                     android:id="@+id/tv_friend_profile_email"
                     android:layout_margin="5dp"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:textColor="@color/black"
                     android:text="Email"
                     android:layout_width="match_parent"
@@ -93,7 +96,7 @@
                 <TextView
                     android:id="@+id/tv_friend_profile_dob"
                     android:layout_margin="5dp"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:textColor="@color/black"
                     android:text="Date Of Birth"
                     android:layout_width="match_parent"
@@ -109,7 +112,7 @@
                     <TextView
                         android:layout_gravity="center"
                         android:id="@+id/tv_friend_profile_gender"
-                        android:textSize="20sp"
+                        android:textSize="25sp"
                         android:textColor="@color/black"
                         android:text="Gender"
                         android:layout_width="match_parent"
@@ -117,55 +120,54 @@
 
                     <ImageView
                         android:id="@+id/iv_friend_profile_gender"
-                        android:layout_marginStart="8dp"
-                        android:src="@drawable/face4"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="8dp" />
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/male"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp" />
 
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/tv_friend_profile_description"
                     android:layout_margin="5dp"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:textColor="@color/black"
                     android:text="About Me"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_friend_profile_write_slam"
-                android:background="@drawable/button_xml"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <TextView
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:id="@+id/tv_friend_profile_write_slam"
-                    android:layout_margin="5dp"
-                    android:textSize="40sp"
-                    android:textColor="@color/black"
-                    android:text="Write Slam"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/ll_friend_profile_write_slam"
+        android:background="@drawable/button_xml"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/tv_friend_profile_write_slam"
+            android:layout_margin="5dp"
+            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:text="Write Slam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
     <include
         android:id="@+id/fab_slam1"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/ll_friend_profile_write_slam"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
         layout="@layout/fab_home" />
 
 </RelativeLayout>

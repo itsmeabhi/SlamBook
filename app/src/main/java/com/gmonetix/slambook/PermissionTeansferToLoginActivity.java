@@ -3,7 +3,6 @@ package com.gmonetix.slambook;
 import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
-
 import com.gmonetix.slambook.helper.RuntimePermission;
 import com.gmonetix.slambook.helper.Utils;
 import com.gmonetix.slambook.user_login.UserLoginActivity;

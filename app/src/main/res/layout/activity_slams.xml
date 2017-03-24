@@ -84,11 +84,11 @@
                     app:civ_border_color="#FF000000"/>
 
                 <ProgressBar
+                    android:id="@+id/iv_profile_image_read_slam_progressBar"
                     style="?android:attr/progressBarStyle"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/iv_profile_image_read_slam_progressBar" />
+                    android:layout_gravity="center" />
 
             </FrameLayout>
 

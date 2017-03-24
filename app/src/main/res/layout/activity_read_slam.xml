@@ -21,7 +21,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <ListView
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/app_bar"
         android:scrollbars="vertical"
         android:scrollbarFadeDuration="2000"
@@ -86,7 +86,6 @@
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
         layout="@layout/fab_home" />
 
 </RelativeLayout>

@@ -13,15 +13,15 @@
             android:id="@+id/ll1"
             android:orientation="vertical"
             android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="80dp">
             <TextView
                 android:id="@+id/tv_home_user_total_slams_received"
                 android:text="Slams received : "
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
@@ -30,9 +30,19 @@
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
+
+    <ImageView
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/frnds1"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true" />
 
     <LinearLayout
         android:id="@+id/ll2"

@@ -19,6 +19,7 @@
         <activity
             android:name=".user_registration.UserRegistrationActivity"
             android:label="@string/title_activity_user_registration"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,49 +27,63 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".PermissionTeansferToLoginActivity">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".PermissionTeansferToLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".user_login.UserLoginActivity">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".user_login.UserLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchFriendsActivity">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".SearchFriendsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".user_profile.FriendProfile">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".user_profile.FriendProfile">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".WriteSlam">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".WriteSlam">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Slams">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".Slams">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ReadSlam">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".ReadSlam">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -78,6 +93,7 @@
         <activity
             android:name=".user_profile.UserHome"
             android:label="@string/title_activity_user_profile"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -85,7 +101,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".user_profile.UserProfile">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".user_profile.UserProfile">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -95,6 +113,7 @@
         <activity
             android:name=".user_profile.EditProfile"
             android:label="@string/title_activity_edit_profile"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -102,43 +121,69 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".SettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".PasswordChangeActivity">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".PasswordChangeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SentSlamsActivty">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".SentSlamsActivty">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SlamsSent">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".SlamsSent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".UpdateSentSlam">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".UpdateSentSlam">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChangeTheme" />
-        <activity android:name=".ForgotPassword"></activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".ChangeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".ForgotPassword">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

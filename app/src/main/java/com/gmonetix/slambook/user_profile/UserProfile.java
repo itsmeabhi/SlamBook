@@ -2,6 +2,8 @@ package com.gmonetix.slambook.user_profile;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+
 public class UserProfile extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar toolbar;
@@ -43,6 +47,8 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     private final static String INTENT_GENDER = "gender";
     private final static String INTENT_DESCRIPTION = "description";
     private final static String INTENT_IMAGE = "image";
+
+    private Bitmap imageBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,45 +80,45 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
             e.printStackTrace();
         }
 
-        tvName.setText(name);
-        tvEmail.setText(email);
-        tvPhoneNumber.setText(phoneNumber);
-        tvDob.setText(dob);
-        tvDescription.setText(description);
+        tvName.setText("Name - "+name);
+        tvEmail.setText("Email - "+email);
+        tvPhoneNumber.setText("Phone Number - "+phoneNumber);
+        tvDob.setText("Date Of Birth - "+dob);
+        tvDescription.setText("About Me - "+description);
         if (gender.equals("MALE"))
             genderImage.setImageDrawable(getResources().getDrawable(R.drawable.male));
         else genderImage.setImageDrawable(getResources().getDrawable(R.drawable.female));
 
-        ImageLoader.getInstance().displayImage(image, profileImage, new ImageLoadingListener() {
-            @Override
-            public void onLoadingStarted(String s, View view) {
-                progressBar.setVisibility(View.VISIBLE);
-            }
+            ImageLoader.getInstance().displayImage(image, profileImage, new ImageLoadingListener() {
+                @Override
+                public void onLoadingStarted(String s, View view) {
+                    progressBar.setVisibility(View.VISIBLE);
+                }
 
-            @Override
-            public void onLoadingFailed(String s, View view, FailReason failReason) {
+                @Override
+                public void onLoadingFailed(String s, View view, FailReason failReason) {
+                    profileImage.setImageDrawable(getResources().getDrawable(R.drawable.profile));
+                    progressBar.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+                    progressBar.setVisibility(View.GONE);
+                    imageBitmap = bitmap;
+                }
+
+                @Override
+                public void onLoadingCancelled(String s, View view) {
+
+                }
+            });
+            if (image.equals(""))
+            {
                 profileImage.setImageDrawable(getResources().getDrawable(R.drawable.profile));
                 progressBar.setVisibility(View.GONE);
             }
 
-            @Override
-            public void onLoadingComplete(String s, View view, Bitmap bitmap) {
-                progressBar.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onLoadingCancelled(String s, View view) {
-
-            }
-        });
-        if (image.equals(""))
-        {
-            profileImage.setImageDrawable(getResources().getDrawable(R.drawable.profile));
-            progressBar.setVisibility(View.GONE);
-        }
-
     }
-
     private void init() {
         utils.getUilInstance(UserProfile.this);
 

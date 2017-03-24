@@ -110,8 +110,7 @@
                 android:layout_height="wrap_content">
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etNickName1"
                         android:text="Nick Name:"
                         android:textColor="@color/black"
@@ -130,6 +129,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+                <LinearLayout
+                    android:id="@+id/ll_write_slam_dob"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/etDob1"
                         android:textSize="20sp"
@@ -139,9 +144,16 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp" />
 
+                    <ImageButton
+                        android:id="@+id/ib_dob"
+                        android:background="@drawable/ic_date"
+                        android:layout_margin="5dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp" />
+                </LinearLayout>
+
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etHobbies1"
                         android:text="Hobbies:"
                         android:textColor="@color/black"
@@ -161,8 +173,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etOnFamousNameChange1"
                         android:text="If I become famous I will change my name to:"
                         android:textColor="@color/black"
@@ -182,8 +193,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etAim1"
                         android:text="Aim in life:"
                         android:textColor="@color/black"
@@ -203,8 +213,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etLoveWearing1"
                         android:text="I love wearing :"
                         android:textColor="@color/black"
@@ -224,8 +233,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etZodiacSign1"
                         android:text="Zodiac Sign :"
                         android:textColor="@color/black"
@@ -245,8 +253,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etHangoutPlace1"
                         android:text="Hangout place :"
                         android:textColor="@color/black"
@@ -266,8 +273,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etTreatForBirthday1"
                         android:text="Treat for Birthday :"
                         android:textColor="@color/black"
@@ -287,8 +293,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etWeekendActivity1"
                         android:text="Weekend Activity :"
                         android:textColor="@color/black"
@@ -308,8 +313,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etMemorableMoment1"
                         android:text="Memorable Moment :"
                         android:textColor="@color/black"
@@ -329,8 +333,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etEmbarassingMoment1"
                         android:text="Embarassing moment:"
                         android:textColor="@color/black"
@@ -350,8 +353,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etThingsToDoBeforeDie1"
                         android:text="Things I want to do before I die :"
                         android:textColor="@color/black"
@@ -371,8 +373,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etWhatBoresMe1"
                         android:text="What bores me most :"
                         android:textColor="@color/black"
@@ -393,8 +394,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etMcrazyAbout1"
                         android:text="I am crazy about :"
                         android:textColor="@color/black"
@@ -414,8 +414,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etMyBiggestStrength1"
                         android:text="My biggest strength :"
                         android:textColor="@color/black"
@@ -435,8 +434,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etThingsIHate1"
                         android:text="Things i hate :"
                         android:textColor="@color/black"
@@ -456,7 +454,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etWhenMHappy1"
                         android:text="When I am happy :"
                         android:textColor="@color/black"
@@ -478,7 +476,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etWhenMSad1"
                         android:text="When I am sad :"
                         android:textColor="@color/black"
@@ -500,8 +498,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etWhenMMad1"
                         android:text="When I am mad :"
                         android:textColor="@color/black"
@@ -521,8 +518,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etWorstHabit1"
                         android:text="My worst habit :"
                         android:textColor="@color/black"
@@ -542,8 +538,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etBestThingAbtMe1"
                         android:text="Best thing about me :"
                         android:textColor="@color/black"
@@ -563,8 +558,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etFeelPowerfullWhen1"
                         android:text="Feel powerfull when :"
                         android:textColor="@color/black"
@@ -584,8 +578,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etBiggestAchievement1"
                         android:text="My Biggest Achievement :"
                         android:textColor="@color/black"
@@ -605,8 +598,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etMyTeddyKnows1"
                         android:text="My teddy knows :"
                         android:textColor="@color/black"
@@ -626,8 +618,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etFb1"
                         android:text="My facebook id :"
                         android:textColor="@color/black"
@@ -647,8 +638,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etAddress1"
                         android:text="I stay at ... :"
                         android:textColor="@color/black"
@@ -668,8 +658,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etPhoneNumber1"
                         android:text="My mobile number :"
                         android:textColor="@color/black"
@@ -689,8 +678,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etWebsite1"
                         android:text="I own this website(s) :"
                         android:textColor="@color/black"
@@ -710,8 +698,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etTwitter1"
                         android:text="My twitter id is :"
                         android:textColor="@color/black"
@@ -731,8 +718,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etInstagram1"
                         android:text="My instagram id is :"
                         android:textColor="@color/black"
@@ -752,8 +738,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etHpyMomentWidU1"
                         android:text="Happy moment with you..."
                         android:textColor="@color/black"
@@ -773,8 +758,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etSadMomentWidU1"
                         android:text="Sad moment with you... :"
                         android:textColor="@color/black"
@@ -794,8 +778,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etGoodThingsAbtU1"
                         android:text="Good things about you (Tell the truth)... :"
                         android:textColor="@color/black"
@@ -815,8 +798,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etBadThingsAbtU1"
                         android:text="Bad things about you (Tell the truth)... :"
                         android:textColor="@color/black"
@@ -836,8 +818,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etFriendshipToMe1"
                         android:text="Friendship according to me ... :"
                         android:textColor="@color/black"
@@ -857,8 +838,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etFavColor1"
                         android:text="My favourite color... :"
                         android:textColor="@color/black"
@@ -878,8 +858,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etFavCelebrities1"
                         android:text="My favourite celebrities... :"
                         android:textColor="@color/black"
@@ -899,8 +878,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etFavRoleModel1"
                         android:text="My favourite celebrities... :"
                         android:textColor="@color/black"
@@ -920,8 +898,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etFavTvShow1"
                         android:text="My favourite Tv show... :"
                         android:textColor="@color/black"
@@ -941,8 +918,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etFavMusicBand1"
                         android:text="My favourite music band... :"
                         android:textColor="@color/black"
@@ -962,8 +938,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etFavFood1"
                         android:text="My favourite food... :"
                         android:textColor="@color/black"
@@ -983,8 +958,7 @@
                     android:layout_height="wrap_content" />
 
                     <TextView
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:id="@+id/etFavSport1"
                         android:text="My favourite game... :"
                         android:textColor="@color/black"
